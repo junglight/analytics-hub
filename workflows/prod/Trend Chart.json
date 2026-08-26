@@ -1,0 +1,171 @@
+{
+  "name": "Trend Chart",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "metric"
+            },
+            {
+              "name": "weeks",
+              "type": "number"
+            },
+            {
+              "name": "country"
+            },
+            {
+              "name": "l1_topic"
+            },
+            {
+              "name": "channel"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "c87d74b9-92f8-4a9c-8b2d-a218772ce72b",
+      "name": "When called by another workflow"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "aacebfab-8e0a-4c62-95fe-ff5ed5510939",
+              "name": "metric",
+              "type": "string",
+              "value": "={{ $json.metric || 'csat' }}"
+            },
+            {
+              "id": "4ac6d125-2a58-49ef-8c8d-bbbcd4b628a2",
+              "name": "weeks",
+              "type": "number",
+              "value": "={{ Number($json.weeks) > 0 ? Math.min(Number($json.weeks), 52) : 12 }}"
+            },
+            {
+              "id": "4a8a5150-5f9e-4e38-8c3f-f27f5100fab8",
+              "name": "country",
+              "type": "string",
+              "value": "={{ $json.country  && $json.country  !== '' ? $json.country  : 'ALL' }}"
+            },
+            {
+              "id": "e811da84-12d1-4f0d-aaa0-83e604c22fd6",
+              "name": "l1_topic",
+              "type": "string",
+              "value": "={{ $json.l1_topic && $json.l1_topic !== '' ? $json.l1_topic : 'ALL' }}"
+            },
+            {
+              "id": "0b38f6d8-f210-4ed6-8d7c-b7c54ee7d372",
+              "name": "channel",
+              "type": "string",
+              "value": "={{ $json.channel  && $json.channel  !== '' ? $json.channel  : 'ALL' }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        224,
+        0
+      ],
+      "id": "87af83bb-c8a8-4641-8e37-dca39517ac01",
+      "name": "Defaults"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT\n  cs_week_beg_dt::date::text AS week,\n  SUM(sr_cnt::bigint)                                                                        AS volume,\n  ROUND(SUM(rsltn_response_cnt::bigint)::numeric / NULLIF(SUM(rsltn_cnt::bigint),0) * 100, 2) AS resolution_rate,\n  ROUND(SUM(csat_sum::bigint)::numeric / NULLIF(SUM(csat_response_cnt::bigint),0), 2)         AS csat,\n  SUM(csat_response_cnt::bigint)                                                             AS csat_response_cnt\nFROM public.cs_contacts\nWHERE cs_week_beg_dt::date > (SELECT MAX(cs_week_beg_dt::date) FROM public.cs_contacts) - ($1::int * 7)\n  AND ($2 = 'ALL' OR country      = $2)\n  AND ($3 = 'ALL' OR l1_topic     = $3)\n  AND ($4 = 'ALL' OR channel_type = $4)\nGROUP BY 1\nORDER BY 1;",
+        "options": {
+          "queryReplacement": "={{ $json.weeks }},{{ $json.country }},{{ $json.l1_topic }},{{ $json.channel }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        448,
+        0
+      ],
+      "id": "40bcb13f-1f7c-4386-8995-e972ed20c830",
+      "name": "Fetch weekly series",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "k8WuuLzvMNJaRkUS",
+          "name": "Postgres Prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Dual-axis QuickChart: response volume as bars, metric as a line. Deterministic, no LLM.\nconst inp = $('Defaults').first().json;\n\nconst META = {\n  volume:          { label: 'Service requests', color: '#2f6fd0', bars: false },\n  resolution_rate: { label: 'Resolution rate %', color: '#1f9d55', bars: true  },\n  csat:            { label: 'CSAT',              color: '#c2410c', bars: true  },\n};\nlet metric = String(inp.metric || 'csat').toLowerCase().trim();\nif (!META[metric]) metric = 'csat';\nconst m = META[metric];\n\nconst rows = $input.all().map(i => i.json).filter(r => r.week);\nif (!rows.length) {\n  return [{ json: { error: 'no rows for that filter', chart_markdown: '' } }];\n}\n\nconst parts = [];\nif (inp.country  && inp.country  !== 'ALL') parts.push(inp.country);\nif (inp.l1_topic && inp.l1_topic !== 'ALL') parts.push(inp.l1_topic);\nif (inp.channel  && inp.channel  !== 'ALL') parts.push(inp.channel);\nconst scope = parts.join(' / ') || 'All countries & topics';\n\nconst labels = rows.map(r => String(r.week).slice(5));\nconst line   = rows.map(r => (r[metric] == null ? null : Number(r[metric])));\nconst bars   = rows.map(r => Number(r.csat_response_cnt || 0));\n\nconst datasets = [{\n  type: 'line', label: m.label, data: line, yAxisID: 'L',\n  borderColor: m.color, backgroundColor: m.color, fill: false, tension: 0.3,\n  pointRadius: 3, borderWidth: 2,\n}];\n// Response-count bars only make sense behind a survey-based metric\nif (m.bars) {\n  datasets.push({\n    type: 'bar', label: 'CSAT responses', data: bars, yAxisID: 'R',\n    backgroundColor: 'rgba(120,130,145,0.30)', borderWidth: 0,\n  });\n}\n\nconst cfg = {\n  type: 'bar',\n  data: { labels, datasets },\n  options: {\n    title: { display: true, text: `${m.label} — ${scope}` },\n    legend: { display: m.bars, position: 'bottom' },\n    scales: {\n      xAxes: [{ scaleLabel: { display: true, labelString: 'Week beginning' } }],\n      yAxes: m.bars ? [\n        { id: 'L', position: 'left',  scaleLabel: { display: true, labelString: m.label } },\n        { id: 'R', position: 'right', scaleLabel: { display: true, labelString: 'Responses' },\n          gridLines: { drawOnChartArea: false }, ticks: { beginAtZero: true } },\n      ] : [\n        { id: 'L', position: 'left', scaleLabel: { display: true, labelString: m.label } },\n      ],\n    },\n  },\n};\n\nconst url = 'https://quickchart.io/chart?w=720&h=340&bkg=white&c=' +\n            encodeURIComponent(JSON.stringify(cfg));\n\nconst f = line[0], l = line[line.length - 1];\nreturn [{ json: {\n  chart_markdown: `![${m.label} trend](${url})`,\n  instruction: 'Copy the chart_markdown value into your reply exactly as written, on its own line. Do not describe it, shorten it, or rewrite the URL.',\n  summary: `${m.label} for ${scope}: ${f} on ${rows[0].week} to ${l} on ${rows[rows.length-1].week} across ${rows.length} weeks.`,\n  series: rows.map((r, i) => ({ week: r.week, value: line[i] })),\n}}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        672,
+        0
+      ],
+      "id": "70172431-5387-4857-8c50-b5d7c85052d7",
+      "name": "Build chart URL"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When called by another workflow": {
+      "main": [
+        [
+          {
+            "node": "Defaults",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Defaults": {
+      "main": [
+        [
+          {
+            "node": "Fetch weekly series",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch weekly series": {
+      "main": [
+        [
+          {
+            "node": "Build chart URL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "c2e184df-d6fd-4fb9-9b76-04e4ef6acee0",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "bb02e0b95637113133eb5a1ee57136a8b1642d920e6857a094edf85f17a8a438"
+  },
+  "nodeGroups": [],
+  "id": "P0qQ77U9f9PoUMMf",
+  "tags": []
+}

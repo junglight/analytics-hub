@@ -1,0 +1,544 @@
+{
+  "name": "Evaluation - Deterministic",
+  "nodes": [
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1lzkE1gFPZSZJ-76QhKsIVpsYlOS9kq-s-STErfDK2TY",
+          "mode": "list",
+          "cachedResultName": "n8n_evals",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1lzkE1gFPZSZJ-76QhKsIVpsYlOS9kq-s-STErfDK2TY/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 912739368,
+          "mode": "list",
+          "cachedResultName": "deterministic",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1lzkE1gFPZSZJ-76QhKsIVpsYlOS9kq-s-STErfDK2TY/edit#gid=912739368"
+        }
+      },
+      "type": "n8n-nodes-base.evaluationTrigger",
+      "typeVersion": 4.6,
+      "position": [
+        -688,
+        176
+      ],
+      "id": "8ab9ec1c-f4d5-42d0-911d-e7e0b2d17481",
+      "name": "Evaluation Trigger",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "45OZB5xYfwQHQcaM",
+          "name": "Google Sheets Prod"
+        }
+      },
+      "notes": "Source defaults to a Data Table named eval_deterministic. If your n8n version doesn't support Data Tables, switch Source to Google Sheets and import eval/eval_deterministic.csv there instead - the row shape is identical."
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ebe00d90-0723-45c2-bba7-f16ee6d34bcb",
+              "name": "id",
+              "type": "string",
+              "value": "={{ $json.id }}"
+            },
+            {
+              "id": "d70d3cef-dd05-41c0-9910-8f485a096904",
+              "name": "target",
+              "type": "string",
+              "value": "={{ $json.target }}"
+            },
+            {
+              "id": "648014d5-5530-40c7-9bcd-e77f5b434bc1",
+              "name": "params",
+              "type": "object",
+              "value": "={{ JSON.parse($json.params_json) }}"
+            },
+            {
+              "id": "52ad990b-ec59-4859-aac7-d5d8b77eb98f",
+              "name": "expected_field",
+              "type": "string",
+              "value": "={{ $json.expected_field }}"
+            },
+            {
+              "id": "908f4792-39bc-4992-83bb-64909335b6e3",
+              "name": "expected_value",
+              "type": "string",
+              "value": "={{ $json.expected_value }}"
+            },
+            {
+              "id": "856a3c51-4a44-4543-a822-2f087c4e98b9",
+              "name": "tolerance",
+              "type": "string",
+              "value": "={{ $json.tolerance }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -464,
+        176
+      ],
+      "id": "5c654731-766f-453e-94c8-5d0ec28039d9",
+      "name": "Map row"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "0ab2e9e1-bd85-4dc9-bbce-53a6f4ffaaf2",
+                    "leftValue": "={{ $json.target }}",
+                    "rightValue": "insight_engine",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "insight_engine"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "7f409816-c390-4405-8768-675710c9300d",
+                    "leftValue": "={{ $json.target }}",
+                    "rightValue": "contribution_analysis",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "contribution_analysis"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "011fbbf3-3b1e-4216-b7cd-7a34a9355139",
+                    "leftValue": "={{ $json.target }}",
+                    "rightValue": "trend_chart",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "trend_chart"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -240,
+        176
+      ],
+      "id": "c878ef12-bc40-48f8-8538-1fe8da0bf790",
+      "name": "Route by target"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "kehzve09wYKuLH0y",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/kehzve09wYKuLH0y",
+          "cachedResultName": "Analytics Hub - Prod — Insight Engine"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "1adab88f-264f-4f27-8f63-de8908f290ef",
+      "name": "Call Insight Engine"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "qkWaFZZT35ekcEiG",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/qkWaFZZT35ekcEiG",
+          "cachedResultName": "Analytics Hub - Prod — Contribution Analysis"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "metric": "={{ $json.params.metric }}",
+            "prior_start": "={{ $json.params.prior_start }}",
+            "prior_end": "={{ $json.params.prior_end }}",
+            "current_start": "={{ $json.params.current_start }}",
+            "current_end": "={{ $json.params.current_end }}",
+            "country": "={{ $json.params.country }}",
+            "channel": "={{ $json.params.channel }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "metric",
+              "displayName": "metric",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "prior_start",
+              "displayName": "prior_start",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "prior_end",
+              "displayName": "prior_end",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "current_start",
+              "displayName": "current_start",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "current_end",
+              "displayName": "current_end",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "country",
+              "displayName": "country",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "channel",
+              "displayName": "channel",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        192
+      ],
+      "id": "b730d2a9-17d4-4c5d-b011-babfff58ed15",
+      "name": "Call Contribution Analysis"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "P0qQ77U9f9PoUMMf",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/P0qQ77U9f9PoUMMf",
+          "cachedResultName": "Analytics Hub - Prod — Trend Chart"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "metric": "={{ $json.params.metric }}",
+            "weeks": "={{ $json.params.weeks }}",
+            "country": "={{ $json.params.country }}",
+            "l1_topic": "={{ $json.params.l1_topic }}",
+            "channel": "={{ $json.params.channel }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "metric",
+              "displayName": "metric",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "weeks",
+              "displayName": "weeks",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number"
+            },
+            {
+              "id": "country",
+              "displayName": "country",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "l1_topic",
+              "displayName": "l1_topic",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "channel",
+              "displayName": "channel",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        368
+      ],
+      "id": "2987ab57-524f-4501-a40a-0e4df76826ed",
+      "name": "Call Trend Chart"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Deterministic pass/fail grading. No LLM. Compares actual sub-workflow output\n// against the expected value declared in the eval dataset row.\nconst row = $('Map row').first().json;\nconst result = $input.first().json;\n\nfunction extract(field) {\n  if (field === 'anomaly_count') return result.anomaly_count;\n  if (field === 'top_driver_topic') return (result.drivers && result.drivers[0]) ? result.drivers[0].l1_topic : null;\n  if (field === 'top_driver_share_pct') return (result.drivers && result.drivers[0]) ? Math.abs(result.drivers[0].share_of_total_change_pct) : null;\n  if (field === 'chart_markdown_present') return (result.chart_markdown && result.chart_markdown.startsWith('!['))  ? 1 : 0;\n  return null;\n}\n\nconst actual = extract(row.expected_field);\nconst expected = row.expected_value;\nconst tol = row.tolerance;\n\nlet pass = 0;\nlet detail = '';\n\nif (tol === 'exact') {\n  pass = (String(actual) === String(expected)) ? 1 : 0;\n  detail = `exact match: actual=\"${actual}\" expected=\"${expected}\"`;\n} else {\n  const a = Number(actual), e = Number(expected), t = Number(tol);\n  pass = (Number.isFinite(a) && Math.abs(a - e) <= t) ? 1 : 0;\n  detail = `tolerance ${t}: actual=${a} expected=${e} abs_diff=${Number.isFinite(a) ? Math.abs(a - e).toFixed(2) : 'n/a'}`;\n}\n\nreturn [{ json: {\n  id: row.id,\n  expected_value: row.expected_value,\n  tolerance: row.tolerance,\n  target: row.target,\n  expected_field: row.expected_field,\n  pass,\n  detail,\n  actual_raw: actual,\n}}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        224,
+        176
+      ],
+      "id": "5395717c-87da-4cc2-ae01-3ea58bea5064",
+      "name": "Grade result"
+    },
+    {
+      "parameters": {
+        "operation": "setMetrics",
+        "metrics": {
+          "assignments": [
+            {
+              "id": "02d17c98-6f1f-4c44-8ec0-6e77893e4ad1",
+              "name": "pass",
+              "value": "={{ $json.pass }}",
+              "type": "number"
+            },
+            {
+              "id": "588ec8df-0127-4eb7-ac0a-38bed535392f",
+              "name": "abs_error",
+              "value": "={{ $json.tolerance === 'exact' ? ($json.pass ? 0 : 1) : Math.abs(Number($json.actual_raw) - Number($json.expected_value)) }}",
+              "type": "number"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.evaluation",
+      "typeVersion": 4.6,
+      "position": [
+        448,
+        176
+      ],
+      "id": "0c874c02-6ceb-40e4-a7fe-08d2543bbf62",
+      "name": "Record metrics"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Evaluation Trigger": {
+      "main": [
+        [
+          {
+            "node": "Map row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Map row": {
+      "main": [
+        [
+          {
+            "node": "Route by target",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route by target": {
+      "main": [
+        [
+          {
+            "node": "Call Insight Engine",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Call Contribution Analysis",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Call Trend Chart",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call Insight Engine": {
+      "main": [
+        [
+          {
+            "node": "Grade result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call Contribution Analysis": {
+      "main": [
+        [
+          {
+            "node": "Grade result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call Trend Chart": {
+      "main": [
+        [
+          {
+            "node": "Grade result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Grade result": {
+      "main": [
+        [
+          {
+            "node": "Record metrics",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "9160bf80-ebaf-4ce5-a7d6-bd4e59599e3c",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "bb02e0b95637113133eb5a1ee57136a8b1642d920e6857a094edf85f17a8a438"
+  },
+  "nodeGroups": [],
+  "id": "lkJPNdZjAG05EpfV",
+  "tags": []
+}

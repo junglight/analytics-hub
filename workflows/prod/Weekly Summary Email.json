@@ -1,0 +1,425 @@
+{
+  "name": "Weekly Summary Email",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "triggerAtDay": [
+                1
+              ],
+              "triggerAtHour": 7
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -688,
+        128
+      ],
+      "id": "9a3c06b4-9a21-4347-9b25-dcd0b24a1901",
+      "name": "Every Monday 07:00"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "InsightEngine001",
+          "mode": "list",
+          "cachedResultName": "Insight Engine"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -464,
+        128
+      ],
+      "id": "16bb02cb-9e1d-46fa-a9e4-bca94b43161d",
+      "name": "Run Insight Engine"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "1be8876d-b45b-4266-b7a4-a2094355d249",
+              "leftValue": "={{ $json.anomaly_count }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -240,
+        128
+      ],
+      "id": "6c5b8ed4-ae41-4e43-9885-0846d30354fe",
+      "name": "Any anomalies?"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Signals for this week:\n\n{{ JSON.stringify($json, null, 2) }}",
+        "options": {
+          "systemMessage": "=You write the weekly Globex customer-support summary email. You receive a signals object containing the\nweek-over-week trend and up to 5 flagged anomalies. Produce the finished HTML email body.\n\n# Rules\n- The numbers in the signals object are authoritative. Never recompute or contradict them.\n- Only three metrics exist: volume (service requests), resolution rate (%), CSAT (1-5). Nothing else.\n- For each anomaly, explain WHY in one sentence:\n  1. First use run_sql to drill beneath it - which country, l1_topic, or channel accounts for the\n     change? This is the preferred explanation.\n  2. Then check project_lookup for a product launch whose L1 topic, market AND date all align.\n     A project is only a plausible driver when all three match.\n  3. Only if neither explains it, check chatter_lookup for community discussion.\n  3. If neither explains it, write \"No clear driver identified\" - do not guess.\n- Label each explanation High, Medium, or Low confidence.\n- Anything with a sample size under 30 gets \"(low sample)\" appended.\n- Be brief. A leader should read this in 90 seconds.\n\n# Output\nReturn ONLY the HTML body. No markdown fences, no commentary, no <html> or <head> tags.\nUse this structure:\n\n<h2>Support Weekly - week of {current_week}</h2>\n<h3>Trend</h3>\n<table cellpadding=\"6\" style=\"border-collapse:collapse;font-family:sans-serif;font-size:14px\">\n  <tr style=\"background:#f4f4f4\"><th align=\"left\">Metric</th><th align=\"right\">This week</th><th align=\"right\">Prior</th><th align=\"right\">Change</th></tr>\n  ... one row each for Volume, Resolution rate, CSAT. Prefix change with an arrow and colour\n      green for a good move, red for a bad one. Remember: lower volume is neutral, lower resolution rate\n      and lower CSAT are bad.\n</table>\n<h3>What moved and why</h3>\n<ol>\n  <li><b>{segment} - {metric}</b>: {prior} to {current} ({change}). {one-sentence why}. <i>Confidence: {level}</i></li>\n</ol>\n<p style=\"color:#888;font-size:12px\">Thresholds: volume +/-25%, resolution rate +/-5pp, CSAT +/-0.3, minimum 30 service requests. Generated automatically from cs_contacts.</p>\n",
+          "maxIterations": 15
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "7c5453f8-e4b6-4330-ac1e-ddbaffa1d221",
+      "name": "Explain & write email"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "builtInTools": {},
+        "options": {
+          "timeout": 180000
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        0,
+        208
+      ],
+      "id": "67522fae-5751-440b-b6a4-345aca8eaa09",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": null,
+          "name": "",
+          "__aiGatewayManaged": true
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Run a read-only PostgreSQL SELECT against public.cs_contacts to drill beneath a flagged anomaly. Columns: cs_week_beg_dt, country, channel_type, l1_topic, sr_cnt, csat_sum, csat_response_cnt, rsltn_cnt, rsltn_response_cnt.",
+        "operation": "executeQuery",
+        "query": "={{ $fromAI('sql', 'A complete read-only PostgreSQL SELECT statement against public.cs_contacts', 'string') }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgresTool",
+      "typeVersion": 2.6,
+      "position": [
+        144,
+        208
+      ],
+      "id": "9e9ba8c3-f2dd-421a-b3a2-5ecb541aa8c1",
+      "name": "run_sql",
+      "credentials": {
+        "postgres": {
+          "id": "k8WuuLzvMNJaRkUS",
+          "name": "Postgres Prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "28ba2c84-c201-49af-af4f-4e43380b79a6",
+              "name": "output",
+              "type": "string",
+              "value": "=<h2>Support Weekly - week of {{ $json.trend.current_week }}</h2><p>No metric crossed an alert threshold this week.</p><table cellpadding=\"6\" style=\"border-collapse:collapse;font-family:sans-serif;font-size:14px\"><tr style=\"background:#f4f4f4\"><th align=\"left\">Metric</th><th align=\"right\">This week</th><th align=\"right\">Prior</th><th align=\"right\">Change</th></tr><tr><td>Volume</td><td align=\"right\">{{ $json.trend.volume.current }}</td><td align=\"right\">{{ $json.trend.volume.prior }}</td><td align=\"right\">{{ $json.trend.volume.change_pct }}%</td></tr><tr><td>Resolution rate</td><td align=\"right\">{{ $json.trend.resolution_rate.current }}%</td><td align=\"right\">{{ $json.trend.resolution_rate.prior }}%</td><td align=\"right\">{{ $json.trend.resolution_rate.change_pp }} pp</td></tr><tr><td>CSAT</td><td align=\"right\">{{ $json.trend.csat.current }}</td><td align=\"right\">{{ $json.trend.csat.prior }}</td><td align=\"right\">{{ $json.trend.csat.change_pts }}</td></tr></table>"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        320,
+        384
+      ],
+      "id": "ef3c711d-23d7-4437-adfe-739d52f60d2b",
+      "name": "No exceptions email"
+    },
+    {
+      "parameters": {
+        "sendTo": "testingtdho@gmail.com",
+        "subject": "=Support Weekly - week of {{ $('Run Insight Engine').first().json.trend.current_week }}",
+        "message": "={{ $json.output }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1040,
+        112
+      ],
+      "id": "e4877ce6-cd9b-4fab-a7a3-23858dc22561",
+      "name": "Send weekly email",
+      "webhookId": "cc2a36d7-264b-476a-a47b-f4039bd5922d",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "RM0QLIFVhIPoHjoD",
+          "name": "Gmail Prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolDescription": "2026 product launch register - launch dates, ramp percentages, affected L1 topics and markets. Check here first when explaining why a metric moved.",
+        "tableName": {
+          "__rl": true,
+          "value": "documents_projects",
+          "mode": "list",
+          "cachedResultName": "documents_projects"
+        },
+        "options": {
+          "queryName": "match_documents_projects"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "typeVersion": 1.3,
+      "position": [
+        288,
+        176
+      ],
+      "id": "4b4a7787-b656-4331-be3b-f6c795a24ac5",
+      "name": "project_lookup",
+      "credentials": {
+        "supabaseApi": {
+          "id": "164kNA285FeD7YDD",
+          "name": "Supabase Prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolDescription": "Seller and buyer community discussion about returns and refunds. Use only if the project register does not explain the movement.",
+        "tableName": {
+          "__rl": true,
+          "value": "documents_chatter",
+          "mode": "list",
+          "cachedResultName": "documents_chatter"
+        },
+        "options": {
+          "queryName": "match_documents_chatter"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "typeVersion": 1.3,
+      "position": [
+        576,
+        176
+      ],
+      "id": "b7925916-8170-4dc4-a618-79d637f31d36",
+      "name": "chatter_lookup",
+      "credentials": {
+        "supabaseApi": {
+          "id": "164kNA285FeD7YDD",
+          "name": "Supabase Prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        496,
+        288
+      ],
+      "id": "e762ed99-9c43-4573-a6e2-44bd35cf9196",
+      "name": "Embeddings OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": null,
+          "name": "",
+          "__aiGatewayManaged": true
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Every Monday 07:00": {
+      "main": [
+        [
+          {
+            "node": "Run Insight Engine",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Run Insight Engine": {
+      "main": [
+        [
+          {
+            "node": "Any anomalies?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Any anomalies?": {
+      "main": [
+        [
+          {
+            "node": "Explain & write email",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No exceptions email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Explain & write email",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "run_sql": {
+      "ai_tool": [
+        [
+          {
+            "node": "Explain & write email",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Explain & write email": {
+      "main": [
+        [
+          {
+            "node": "Send weekly email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No exceptions email": {
+      "main": [
+        [
+          {
+            "node": "Send weekly email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "project_lookup": {
+      "ai_tool": [
+        [
+          {
+            "node": "Explain & write email",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "chatter_lookup": {
+      "ai_tool": [
+        [
+          {
+            "node": "Explain & write email",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "project_lookup",
+            "type": "ai_embedding",
+            "index": 0
+          },
+          {
+            "node": "chatter_lookup",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "93cdda70-6eb6-46f0-93e0-b2fc53398d86",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "bb02e0b95637113133eb5a1ee57136a8b1642d920e6857a094edf85f17a8a438"
+  },
+  "nodeGroups": [],
+  "id": "zzDlAtdQxAzxhdHv",
+  "tags": []
+}

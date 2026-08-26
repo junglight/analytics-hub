@@ -1,0 +1,92 @@
+{
+  "name": "Insight Engine",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "047ce9c6-c2aa-4340-baba-0a999c136537",
+      "name": "When called by another workflow"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "WITH bounds AS (\n  SELECT MAX(cs_week_beg_dt) AS cur_wk FROM public.cs_contacts\n),\nwk AS (\n  SELECT\n    c.cs_week_beg_dt,\n    c.country,\n    c.l1_topic,\n    SUM(c.sr_cnt)              AS sr_cnt,\n    SUM(c.rsltn_cnt)           AS rsltn_cnt,\n    SUM(c.rsltn_response_cnt)  AS rsltn_response_cnt,\n    SUM(c.csat_sum)            AS csat_sum,\n    SUM(c.csat_response_cnt)   AS csat_response_cnt\n  FROM public.cs_contacts c\n  CROSS JOIN bounds b\n  WHERE c.cs_week_beg_dt IN (b.cur_wk, b.cur_wk - 7)\n  GROUP BY 1, 2, 3\n)\nSELECT\n  wk.cs_week_beg_dt::text            AS week,\n  (SELECT cur_wk FROM bounds)::text  AS cur_week,\n  wk.country,\n  wk.l1_topic,\n  wk.sr_cnt, wk.rsltn_cnt, wk.rsltn_response_cnt, wk.csat_sum, wk.csat_response_cnt\nFROM wk\nORDER BY wk.cs_week_beg_dt, wk.country, wk.l1_topic;",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        224,
+        0
+      ],
+      "id": "d3d6f6b8-1760-4873-b26c-90d8810863bd",
+      "name": "Fetch 2 weeks by country x L1",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "k8WuuLzvMNJaRkUS",
+          "name": "Postgres Prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// ── Deterministic anomaly detection. No LLM. Same output for chat + email. ──\nconst TH = { volume_pct: 25, resolution_pp: 5, csat_pts: 0.3, min_sr: 30 };\n\nconst rows = $input.all().map(i => i.json);\nif (!rows.length) {\n  return [{ json: { error: 'no rows returned from cs_contacts', trend: null, anomaly_count: 0, anomalies: [] } }];\n}\n\nconst N = v => Number(v || 0);\nconst curWeek  = rows[0].cur_week;\nconst curRows  = rows.filter(r => r.week === curWeek);\nconst prevRows = rows.filter(r => r.week !== curWeek);\nconst prevWeek = prevRows.length ? prevRows[0].week : null;\n\nfunction roll(rs) {\n  return rs.reduce((a, r) => ({\n    sr: a.sr + N(r.sr_cnt),\n    rc: a.rc + N(r.rsltn_cnt),\n    rr: a.rr + N(r.rsltn_response_cnt),\n    cs: a.cs + N(r.csat_sum),\n    cr: a.cr + N(r.csat_response_cnt),\n  }), { sr: 0, rc: 0, rr: 0, cs: 0, cr: 0 });\n}\n\nfunction metrics(t) {\n  return {\n    volume: t.sr,\n    resolution_rate: t.rc ? Number(((t.rr / t.rc) * 100).toFixed(2)) : null,\n    csat: t.cr ? Number((t.cs / t.cr).toFixed(2)) : null,\n  };\n}\n\nconst pct = (c, p) => (p ? Number((((c - p) / p) * 100).toFixed(1)) : null);\nconst dlt = (c, p, d) => (c != null && p != null ? Number((c - p).toFixed(d)) : null);\n\nconst curT = roll(curRows), prevT = roll(prevRows);\nconst cur  = metrics(curT),  prev  = metrics(prevT);\n\nconst trend = {\n  current_week: curWeek,\n  prior_week: prevWeek,\n  volume:          { current: cur.volume,          prior: prev.volume,          change_pct: pct(cur.volume, prev.volume) },\n  resolution_rate: { current: cur.resolution_rate, prior: prev.resolution_rate, change_pp:  dlt(cur.resolution_rate, prev.resolution_rate, 2) },\n  csat:            { current: cur.csat,            prior: prev.csat,            change_pts: dlt(cur.csat, prev.csat, 2) },\n};\n\nfunction index(rs, keyFn) {\n  const m = {};\n  for (const r of rs) {\n    const k = keyFn(r);\n    if (k == null || k === '') continue;\n    if (!m[k]) m[k] = { sr: 0, rc: 0, rr: 0, cs: 0, cr: 0 };\n    m[k].sr += N(r.sr_cnt); m[k].rc += N(r.rsltn_cnt); m[k].rr += N(r.rsltn_response_cnt);\n    m[k].cs += N(r.csat_sum); m[k].cr += N(r.csat_response_cnt);\n  }\n  return m;\n}\n\nconst dims = [\n  { name: 'country',  fn: r => r.country },\n  { name: 'l1_topic', fn: r => r.l1_topic },\n];\n\nconst totalVolDelta = curT.sr - prevT.sr;\nconst anomalies = [];\n\nfor (const d of dims) {\n  const C = index(curRows, d.fn), P = index(prevRows, d.fn);\n  for (const k of new Set([...Object.keys(C), ...Object.keys(P)])) {\n    const ct = C[k] || { sr: 0, rc: 0, rr: 0, cs: 0, cr: 0 };\n    const pt = P[k] || { sr: 0, rc: 0, rr: 0, cs: 0, cr: 0 };\n    if (ct.sr < TH.min_sr && pt.sr < TH.min_sr) continue;   // sample floor\n    const cm = metrics(ct), pm = metrics(pt);\n    const base = { dimension: d.name, segment: k };\n\n    const vp = pct(cm.volume, pm.volume);\n    if (vp !== null && Math.abs(vp) >= TH.volume_pct) {\n      anomalies.push({ ...base, metric: 'volume', prior: pm.volume, current: cm.volume,\n        delta: cm.volume - pm.volume, change_pct: vp,\n        contribution_pct: totalVolDelta ? Number((((cm.volume - pm.volume) / totalVolDelta) * 100).toFixed(1)) : null,\n        direction: vp > 0 ? 'up' : 'down', _sev: Math.abs(vp) / TH.volume_pct });\n    }\n\n    const rp = dlt(cm.resolution_rate, pm.resolution_rate, 2);\n    if (rp !== null && Math.abs(rp) >= TH.resolution_pp) {\n      anomalies.push({ ...base, metric: 'resolution_rate', prior: pm.resolution_rate, current: cm.resolution_rate,\n        delta_pp: rp, sample_size: ct.rc, direction: rp > 0 ? 'up' : 'down',\n        _sev: Math.abs(rp) / TH.resolution_pp });\n    }\n\n    const cp = dlt(cm.csat, pm.csat, 2);\n    if (cp !== null && Math.abs(cp) >= TH.csat_pts) {\n      anomalies.push({ ...base, metric: 'csat', prior: pm.csat, current: cm.csat,\n        delta_pts: cp, sample_size: ct.cr, direction: cp > 0 ? 'up' : 'down',\n        _sev: Math.abs(cp) / TH.csat_pts });\n    }\n  }\n}\n\nanomalies.sort((a, b) => b._sev - a._sev);\nconst top = anomalies.slice(0, 5).map(({ _sev, ...rest }) => rest);\n\nreturn [{ json: { trend, thresholds: TH, anomaly_count: anomalies.length, anomalies: top } }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        464,
+        0
+      ],
+      "id": "5c3a4c5b-daf0-4672-8cb5-715ec0c79b78",
+      "name": "Detect anomalies"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When called by another workflow": {
+      "main": [
+        [
+          {
+            "node": "Fetch 2 weeks by country x L1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch 2 weeks by country x L1": {
+      "main": [
+        [
+          {
+            "node": "Detect anomalies",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "171d2324-8363-411a-bb97-302559c28f77",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "bb02e0b95637113133eb5a1ee57136a8b1642d920e6857a094edf85f17a8a438"
+  },
+  "nodeGroups": [],
+  "id": "kehzve09wYKuLH0y",
+  "tags": []
+}

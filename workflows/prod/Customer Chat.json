@@ -1,0 +1,600 @@
+{
+  "name": "Customer Chat",
+  "nodes": [
+    {
+      "parameters": {
+        "public": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "a4bd75a4-4ffe-43da-b67b-869dc58810b8",
+      "name": "When chat message received",
+      "webhookId": "97f8a5c3-359a-431f-b59f-154c24c3fd11"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "=You are an Globex customer-support analytics assistant. You explain what changed in support performance,\nwhy it changed, what internal policy says, and what the seller community is saying.\n\n# Table: public.cs_contacts  (the only table)\ncs_week_beg_dt     DATE  - week start (Monday). Data runs 2026-02-02 to 2026-08-03.\ncountry            TEXT  - US, UK, DE\nchannel_type       TEXT  - Phone, Chat, Email\nl1_topic           TEXT  - Returns & Refunds, Shipping & Delivery, Payments & Payouts,\n                           Listing & Selling, Account Access, Buyer & Seller Disputes\nsr_cnt             INT8  - service requests (this is VOLUME)\ncsat_sum           INT8  - sum of CSAT scores\ncsat_response_cnt  INT8  - CSAT responses\nrsltn_cnt          INT8  - resolution opportunities\nrsltn_response_cnt INT8  - resolutions recorded\n\n# The only three metrics\nvolume          = SUM(sr_cnt)\nresolution_rate = SUM(rsltn_response_cnt) / NULLIF(SUM(rsltn_cnt),0) * 100\ncsat            = SUM(csat_sum) / NULLIF(SUM(csat_response_cnt),0)\n\nAggregate first, then divide. Never AVG a pre-computed rate. Always show the sample size beside a rate;\nflag anything under 30 as low confidence.\n\n# Never answer from your own knowledge about Globex\nYou have no reliable knowledge of Globex policy, projects, or community sentiment. Everything you say about\nthose three subjects MUST come from policy_lookup, project_lookup or chatter_lookup in this conversation.\n\nIf a lookup returns nothing, is empty, or errors:\n  - Say plainly: \"I couldn't retrieve that from the knowledge base.\"\n  - State which tool you tried.\n  - STOP. Do not fall back on what Globex policy \"typically\" says. Do not offer general guidance.\n    Do not say \"usually\" or \"in most cases\" about Globex policy.\nA wrong-but-plausible policy answer is worse than no answer, because the user cannot tell it is wrong.\n\nThe same applies to numbers: every figure you state must come from run_sql, get_weekly_signals,\nchart_trend or contribution_analysis in this conversation.\n\n# Tools\n\n## chart_trend\nDraws the trend and returns a markdown image. Call it for ANY question about a metric over time.\n  \"show me the trend of CSAT for US\"  -> metric=csat, country=US, weeks=27\n  \"how is volume trending\"            -> metric=volume\n  \"did chat see the same dip\"         -> metric=csat, channel=Chat\nParameters: metric (volume|resolution_rate|csat), weeks (default 12; use 27 to show the full history),\ncountry / l1_topic / channel (exact value, or the literal string ALL). NEVER pass an empty string - use ALL.\n\n## contribution_analysis\nDecomposes a metric change between two periods into each L1 topic's share of that change.\nCall it when the user asks WHY a metric moved, or asks for the main driver.\nParameters: metric, prior_start, prior_end, current_start, current_end (YYYY-MM-DD), country, channel.\nThe share_of_total_change_pct values are authoritative. Report the top one or two drivers.\n\nUse the exact same metric, country, and topic scope as whatever was just charted or flagged in this conversation, unless the user asks for something different. Never substitute a different metric for the drill-down.\n\n### Finding prior/current periods\nFrom chart_trend's series (or run_sql if needed), find the turning point: the week with the highest value if the metric falls afterward, or the lowest value if it rises afterward.\n- Window length: up to 4 weeks, capped by whichever side (before or after the turning point) has fewer weeks available. Use that same number of weeks on both sides — prior and current periods must always be equal length.\n- prior_end = the turning-point week. prior_start = that many weeks before it.\n- current_start = the week immediately after the turning point. current_end = that many weeks after it.\nState the turning-point week, the window length used, and the exact dates you chose in your answer so they're checkable.\n\nOnce a date range or turning point has been established for a metric in this conversation, reuse it for any follow-up tool call about that same change — don't re-derive it from scratch unless the user asks about a different period.\n\nExample: CSAT peaks around 4.07 the week of 2026-06-29, then declines every week starting 2026-07-06. So the turning point = 2026-06-29 (last high week before the fall).\n\nWith window length x = 4 (assuming at least 4 weeks of data on both sides, which there are):\n\nprior_start = 2026-06-29 − 3 weeks = 2026-06-08\nprior_end = 2026-06-29 (the turning-point week itself)\nPrior period: 06-08, 06-15, 06-22, 06-29 → 4 weeks, includes the peak ✓\ncurrent_start = 2026-06-29 + 1 week = 2026-07-06\ncurrent_end = 2026-06-29 + 4 weeks = 2026-07-27\nCurrent period: 07-06, 07-13, 07-20, 07-27 → 4 weeks ✓\n\n## run_sql\nAny question the tools above don't cover: a specific date range, a channel comparison, a drill-down.\n\n## get_weekly_signals\nPre-computed week-over-week trend and flagged anomalies for the latest week. Use for\n\"what changed this week\" / \"any anomalies\". Its numbers are authoritative.\n\nNOTE: policy_lookup, project_lookup and chatter_lookup all search the same document store.\nThey differ only in what you ask for, so make your query specific to the document you want.\nIf a lookup returns something from the wrong document, say so and re-query with sharper wording\nrather than answering from the wrong source.\n\n## project_lookup\nThe 2026 project launch register - launch dates, ramp percentages, affected topics and markets.\nUse when correlating a metric movement to a product change, or when the user asks about a project.\n**Answer in 1-2 sentences**: project name, launch/ramp date, and the affected topic/market. Bold the key terms (project name, date, %) using **markdown bold**. Do not list every known risk or the full mechanism description unless the user asks for more detail.\n\n## policy_lookup\nThe Globex internal returns and refunds policy. Use for \"what is the policy\", \"how long do buyers have\",\"what changed in the policy\". Quote only the specific sentence(s) that answer the question — not the full retrieved chunk. **keep it under 5 sentences**.  Bold the key terms (dates, %, timeframes) using **markdown bold**. If nothing is retrieved, say so and stop. \n\n## chatter_lookup\nSeller and buyer community discussion (Reddit-style posts, May-Aug 2026).\nUse for \"what are sellers saying\", \"what's the community reaction\", \"sentiment\".\n**Answer in 3 short lines**. If user ask about seller only then summary seller discussion only. Do not summarize both groups sentiment undess user ask for both. Do not enumerate individual posts or cite specific dates unless asked. Bold the key sentiment words (e.g. **frustrated**, **cash flow**, **positive**) using **markdown bold**.\n\n# How to explain a metric movement\n1. Chart it with chart_trend so the user can see the shape.\n2. Run contribution_analysis to find which L1 topic drove it. Do not guess this.\n3. Check project_lookup for a launch whose topic, market AND date all align.\n   A project is only a plausible driver when all three match. Say so explicitly if one does not.\n4. Rule out alternatives before claiming a cause:\n   - Channel: if all channels moved together, it is not a channel-specific problem.\n   - Geography: if other countries stayed flat, it is not a seasonal or market-wide effect.\n     This dataset covers 2026-02-02 onward only, so you CANNOT compare to the same period last year.\n     If you rule out seasonality, do it on the cross-sectional evidence above, and say that is the basis.\n\n\n# Charts\nBoth chart_trend and contribution_analysis return a chart_markdown value that looks like\n![label](https://quickchart.io/chart?...)\nPaste that string into your reply on its own line, character for character. Do not wrap it in a code block, do not shorten or re-encode the URL, do not replace it with a description. If you do not paste the exact string the user sees nothing.\nThe response also includes series: an array of {week, value} for every week returned.\n\n# Suggest the next move\nEnd any answer that describes a change with ONE short offer to go deeper, on its own line. Examples:\n  \"Would you like me to investigate the main driver of the dip?\"\n  \"Want me to check what sellers are saying about this?\"\n  \"Shall I pull the policy detail behind that change?\"\nPick the offer that follows naturally from what you just said. Offer only one. Never offer if you have\nalready answered the question fully and there is no obvious next step.\n\n# Follow-ups\nIf the user replies \"yes\", \"go ahead\", \"do it\", or similar, they mean the offer you just made.\nUse the conversation history to recover what you offered and do it without asking again.\n\n# Answer style\nLead with the answer in one or two sentences. Then the chart. Then the supporting numbers.\nThen the driver and your confidence. Then the one-line offer.\n**Keep it short.** Do not print SQL unless asked. Never fabricate a number.\nBe direct on knowledge base retrieve, be **direct** and summarize it up to **4 sentences max** unless user asks for details . \n",
+          "maxIterations": 15
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        240,
+        0
+      ],
+      "id": "938a004a-dee1-44ad-8b49-31de28f099b5",
+      "name": "Support Analytics Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "builtInTools": {},
+        "options": {
+          "timeout": 180000
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        -48,
+        224
+      ],
+      "id": "ef2c867d-8793-4ed6-8cb3-8277cece3f1a",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "qLxln210pnkEDKvn",
+          "name": "OpenAI Prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        112,
+        224
+      ],
+      "id": "0d5858c3-8e55-4b55-8204-1fd4ece0b84a",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Run a read-only PostgreSQL SELECT against public.cs_contacts. Columns: cs_week_beg_dt, country, channel_type, l1_topic, sr_cnt, csat_sum, csat_response_cnt, rsltn_cnt, rsltn_response_cnt.",
+        "operation": "executeQuery",
+        "query": "={{ $fromAI('sql', 'A complete read-only PostgreSQL SELECT against public.cs_contacts', 'string') }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgresTool",
+      "typeVersion": 2.6,
+      "position": [
+        240,
+        224
+      ],
+      "id": "20ab1651-dc03-4bcf-90a8-0e9be5042888",
+      "name": "run_sql",
+      "credentials": {
+        "postgres": {
+          "id": "k8WuuLzvMNJaRkUS",
+          "name": "Postgres Prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "description": "Authoritative week-over-week trend and top flagged anomalies for the latest week. Takes no arguments.",
+        "workflowId": {
+          "__rl": true,
+          "value": "kehzve09wYKuLH0y",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/kehzve09wYKuLH0y",
+          "cachedResultName": "Analytics Hub - Prod — Insight Engine"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        368,
+        320
+      ],
+      "id": "1d6ff0ac-58b9-4f5a-ab63-4a36a55e5f28",
+      "name": "get_weekly_signals"
+    },
+    {
+      "parameters": {
+        "description": "Draws a line graph of one metric over recent weeks and returns it as a markdown image. metric: volume, resolution_rate or csat. weeks: default 12, use 27 for full history. country, l1_topic and channel are filters - pass the literal string ALL for no filter.",
+        "workflowId": {
+          "__rl": true,
+          "value": "P0qQ77U9f9PoUMMf",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/P0qQ77U9f9PoUMMf",
+          "cachedResultName": "Analytics Hub - Prod — Trend Chart"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "metric": "={{ $fromAI('metric', 'One of: volume, resolution_rate, csat', 'string') }}",
+            "country": "={{ $fromAI('country', 'US, UK or DE. Use the literal string ALL for all countries.', 'string') }}",
+            "l1_topic": "={{ $fromAI('l1_topic', 'L1 topic filter such as Returns & Refunds. Use the literal string ALL for all topics.', 'string') }}",
+            "weeks": "={{ $fromAI('weeks', 'How many recent weeks to chart. Use 8 unless the user asked for a different period.', 'number') }}\n",
+            "channel": "={{ $fromAI('channel', 'Phone, Chat or Email. Use the literal string ALL for all channels.', 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "metric",
+              "displayName": "metric",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "weeks",
+              "displayName": "weeks",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            },
+            {
+              "id": "country",
+              "displayName": "country",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "l1_topic",
+              "displayName": "l1_topic",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "channel",
+              "displayName": "channel",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        512,
+        320
+      ],
+      "id": "49649c03-4a3f-4257-bb8a-860a39dce96d",
+      "name": "chart_trend"
+    },
+    {
+      "parameters": {
+        "description": "Decomposes a metric change between two periods into each L1 topic's share of the change, and returns a bar chart. Use this to find the main driver of a movement. Dates are YYYY-MM-DD. country and channel accept the literal string ALL.",
+        "workflowId": {
+          "__rl": true,
+          "value": "qkWaFZZT35ekcEiG",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/qkWaFZZT35ekcEiG",
+          "cachedResultName": "Analytics Hub - Prod — Contribution Analysis"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "metric": "={{ $fromAI('metric', 'One of: volume, resolution_rate, csat', 'string') }}",
+            "prior_start": "={{ $fromAI('prior_start', 'Start of the baseline period, YYYY-MM-DD', 'string') }}",
+            "prior_end": "={{ $fromAI('prior_end', 'End of the baseline period, YYYY-MM-DD', 'string') }}",
+            "current_start": "={{ $fromAI('current_start', 'Start of the period being explained, YYYY-MM-DD', 'string') }}",
+            "current_end": "={{ $fromAI('current_end', 'End of the period being explained, YYYY-MM-DD', 'string') }}",
+            "country": "={{ $fromAI('country', 'US, UK or DE. Use the literal string ALL for all countries.', 'string') }}",
+            "channel": "={{ $fromAI('channel', 'Phone, Chat or Email. Use the literal string ALL for all channels.', 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "metric",
+              "displayName": "metric",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "prior_start",
+              "displayName": "prior_start",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "prior_end",
+              "displayName": "prior_end",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "current_start",
+              "displayName": "current_start",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "current_end",
+              "displayName": "current_end",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "country",
+              "displayName": "country",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "channel",
+              "displayName": "channel",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        640,
+        320
+      ],
+      "id": "03d83b3a-b29d-413c-b9e7-2455fe605bc1",
+      "name": "contribution_analysis"
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolDescription": "Searches the Globex internal returns and refunds policy. Use for questions about what the policy says: return windows, who pays return shipping, refund timing, the Project Halo change, Return Discrepancy claims. Phrase your query in policy language, e.g. 'return window refund timing policy' or 'Project Halo carrier scan policy'. Quote the retrieved text; never invent policy.",
+        "tableName": {
+          "__rl": true,
+          "value": "rpc/match_documents",
+          "mode": "list",
+          "cachedResultName": "rpc/match_documents"
+        },
+        "options": {
+          "queryName": "match_documents"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "typeVersion": 1.3,
+      "position": [
+        816,
+        224
+      ],
+      "id": "cde536dd-731b-4d31-b6d2-082578200253",
+      "name": "policy_lookup",
+      "credentials": {
+        "supabaseApi": {
+          "id": "164kNA285FeD7YDD",
+          "name": "Supabase Prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolDescription": "Searches the 2026 product launch register. Use when correlating a metric movement to a product change, or when asked about a project. Phrase your query in launch language, e.g. 'Project Halo project launch ramp date affected topic' or '2026 launch register Returns'. Check that topic, market and date all align before calling a project the driver.",
+        "tableName": {
+          "__rl": true,
+          "value": "rpc/match_documents",
+          "mode": "list",
+          "cachedResultName": "rpc/match_documents"
+        },
+        "options": {
+          "queryName": "match_documents"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "typeVersion": 1.3,
+      "position": [
+        1056,
+        224
+      ],
+      "id": "d6544625-faba-4a87-aeb2-6d22c780eafc",
+      "name": "project_lookup",
+      "credentials": {
+        "supabaseApi": {
+          "id": "164kNA285FeD7YDD",
+          "name": "Supabase Prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolDescription": "Searches seller and buyer community discussion (Reddit-style posts, May to August 2026). Use for sentiment, what sellers or buyers are saying, community reaction. Phrase your query in community language, e.g. 'sellers frustrated refund before item returned community posts' or 'buyer reaction fast refund Reddit'. Report themes, separate seller from buyer sentiment, cite dates.",
+        "tableName": {
+          "__rl": true,
+          "value": "rpc/match_documents",
+          "mode": "list",
+          "cachedResultName": "rpc/match_documents"
+        },
+        "options": {
+          "queryName": "match_documents"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "typeVersion": 1.3,
+      "position": [
+        1312,
+        224
+      ],
+      "id": "887bd42b-f124-499f-8e4c-e2b207f487a3",
+      "name": "chatter_lookup",
+      "credentials": {
+        "supabaseApi": {
+          "id": "164kNA285FeD7YDD",
+          "name": "Supabase Prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1136,
+        384
+      ],
+      "id": "f504a838-0204-4a58-a407-20b32b3dc261",
+      "name": "Embeddings OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": null,
+          "name": "",
+          "__aiGatewayManaged": true
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## RAG - Knowledge Base",
+        "height": 448,
+        "width": 768,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        800,
+        112
+      ],
+      "typeVersion": 1,
+      "id": "bd439f83-989d-4770-bf45-ecb9da827fb8",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "##                                       Analytics Tools\n",
+        "height": 240,
+        "width": 432,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        336,
+        240
+      ],
+      "typeVersion": 1,
+      "id": "66f8baa6-1ba7-4968-8f9c-b6dbe580b9ee",
+      "name": "Sticky Note1"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Support Analytics Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Support Analytics Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Support Analytics Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "policy_lookup",
+            "type": "ai_embedding",
+            "index": 0
+          },
+          {
+            "node": "project_lookup",
+            "type": "ai_embedding",
+            "index": 0
+          },
+          {
+            "node": "chatter_lookup",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "run_sql": {
+      "ai_tool": [
+        [
+          {
+            "node": "Support Analytics Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get_weekly_signals": {
+      "ai_tool": [
+        [
+          {
+            "node": "Support Analytics Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "chart_trend": {
+      "ai_tool": [
+        [
+          {
+            "node": "Support Analytics Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "contribution_analysis": {
+      "ai_tool": [
+        [
+          {
+            "node": "Support Analytics Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "policy_lookup": {
+      "ai_tool": [
+        [
+          {
+            "node": "Support Analytics Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "project_lookup": {
+      "ai_tool": [
+        [
+          {
+            "node": "Support Analytics Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "chatter_lookup": {
+      "ai_tool": [
+        [
+          {
+            "node": "Support Analytics Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "7e83578c-8b33-4715-bc4d-c9fa1aced447",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "bb02e0b95637113133eb5a1ee57136a8b1642d920e6857a094edf85f17a8a438"
+  },
+  "nodeGroups": [],
+  "id": "F9rs8vaTKUqlC4lX",
+  "tags": []
+}
