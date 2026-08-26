@@ -1,0 +1,105 @@
+{
+  "name": "Error Handler - Email Alert",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "a1e11111-0000-4000-8000-000000000001",
+      "name": "Error Trigger",
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [260, 300]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b1e11111-0000-4000-8000-000000000002",
+              "name": "workflowName",
+              "value": "={{ $json.workflow.name }}",
+              "type": "string"
+            },
+            {
+              "id": "b1e11111-0000-4000-8000-000000000003",
+              "name": "errorMessage",
+              "value": "={{ $json.execution.error.message }}",
+              "type": "string"
+            },
+            {
+              "id": "b1e11111-0000-4000-8000-000000000004",
+              "name": "failedNode",
+              "value": "={{ $json.execution.lastNodeExecuted }}",
+              "type": "string"
+            },
+            {
+              "id": "b1e11111-0000-4000-8000-000000000005",
+              "name": "executionUrl",
+              "value": "={{ $json.execution.url }}",
+              "type": "string"
+            },
+            {
+              "id": "b1e11111-0000-4000-8000-000000000006",
+              "name": "timestamp",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c1e11111-0000-4000-8000-000000000007",
+      "name": "Extract Error Details",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [480, 300]
+    },
+    {
+      "parameters": {
+        "fromEmail": "alerts@yourdomain.com",
+        "toEmail": "you@yourdomain.com",
+        "subject": "=[n8n Alert] Workflow Failed: {{ $json.workflowName }}",
+        "emailFormat": "text",
+        "text": "=A workflow failed in n8n.\n\nWorkflow: {{ $json.workflowName }}\nFailed node: {{ $json.failedNode }}\nError: {{ $json.errorMessage }}\nTime: {{ $json.timestamp }}\nExecution link: {{ $json.executionUrl }}",
+        "options": {}
+      },
+      "id": "d1e11111-0000-4000-8000-000000000008",
+      "name": "Send Email Alert",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [700, 300],
+      "credentials": {
+        "smtp": {
+          "id": "REPLACE_WITH_YOUR_SMTP_CREDENTIAL_ID",
+          "name": "SMTP account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Extract Error Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Error Details": {
+      "main": [
+        [
+          {
+            "node": "Send Email Alert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}
