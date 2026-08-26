@@ -1,0 +1,185 @@
+{
+  "name": "Contribution Analysis",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "workflowInputs",
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "metric"
+            },
+            {
+              "name": "prior_start"
+            },
+            {
+              "name": "prior_end"
+            },
+            {
+              "name": "current_start"
+            },
+            {
+              "name": "current_end"
+            },
+            {
+              "name": "country"
+            },
+            {
+              "name": "channel"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "ef5901fe-a60b-4b06-94d6-7ed60c117d46",
+      "name": "When called by another workflow"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "aa7669eb-9e7f-415d-a218-7efad1a13a30",
+              "name": "metric",
+              "type": "string",
+              "value": "={{ $json.metric || 'csat' }}"
+            },
+            {
+              "id": "1d0e3c6c-b614-4b78-af9f-d12f16ae0c46",
+              "name": "prior_start",
+              "type": "string",
+              "value": "={{ $json.prior_start || '2026-06-01' }}"
+            },
+            {
+              "id": "fff979d0-0c92-4f10-a49f-3f2caef50b42",
+              "name": "prior_end",
+              "type": "string",
+              "value": "={{ $json.prior_end || '2026-06-29' }}"
+            },
+            {
+              "id": "2042155a-357c-4d0e-9067-6c37b08bbbe0",
+              "name": "current_start",
+              "type": "string",
+              "value": "={{ $json.current_start || '2026-07-06' }}"
+            },
+            {
+              "id": "f20b3561-47f2-4fc4-bf4e-2b1437b0c43f",
+              "name": "current_end",
+              "type": "string",
+              "value": "={{ $json.current_end || '2026-08-03' }}"
+            },
+            {
+              "id": "aca5543d-2f10-4415-9da9-1c1a508fb073",
+              "name": "country",
+              "type": "string",
+              "value": "={{ $json.country && $json.country !== '' ? $json.country : 'ALL' }}"
+            },
+            {
+              "id": "67cb3b77-f90c-4f1e-9f4e-45e29fe6e863",
+              "name": "channel",
+              "type": "string",
+              "value": "={{ $json.channel && $json.channel !== '' ? $json.channel : 'ALL' }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        220,
+        0
+      ],
+      "id": "26c2ee2b-95d7-4dca-a0be-57257bfc11ec",
+      "name": "Defaults"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT\n  CASE WHEN cs_week_beg_dt::date BETWEEN $1::date AND $2::date THEN 'prior' ELSE 'current' END AS period,\n  l1_topic,\n  SUM(sr_cnt::bigint)             AS sr_cnt,\n  SUM(csat_sum::bigint)           AS csat_sum,\n  SUM(csat_response_cnt::bigint)  AS csat_response_cnt,\n  SUM(rsltn_cnt::bigint)          AS rsltn_cnt,\n  SUM(rsltn_response_cnt::bigint) AS rsltn_response_cnt\nFROM public.cs_contacts\nWHERE (cs_week_beg_dt::date BETWEEN $1::date AND $2::date\n    OR cs_week_beg_dt::date BETWEEN $3::date AND $4::date)\n  AND ($5 = 'ALL' OR country      = $5)\n  AND ($6 = 'ALL' OR channel_type = $6)\nGROUP BY 1, 2\nORDER BY 1, 2;",
+        "options": {
+          "queryReplacement": "={{ $json.prior_start }},{{ $json.prior_end }},{{ $json.current_start }},{{ $json.current_end }},{{ $json.country }},{{ $json.channel }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        440,
+        0
+      ],
+      "id": "08709416-4d64-4fc0-b2af-9f08335c7c69",
+      "name": "Fetch both periods",
+      "credentials": {
+        "postgres": {
+          "id": "PhY5ZpQ6N28aQ3oJ",
+          "name": "Postgres account"
+        }
+      },
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Decompose a metric change by L1 topic between two periods. Deterministic, no LLM.\nconst inp = $('Defaults').first().json;\n\nlet metric = String(inp.metric || 'csat').toLowerCase().trim();\nif (!['csat','volume','resolution_rate'].includes(metric)) metric = 'csat';\n\nconst rows = $input.all().map(i => i.json);\nif (!rows.length) return [{ json: { error: 'no rows', drivers: [] } }];\n\nconst N = v => Number(v || 0);\nconst P = {}, C = {};\nfor (const r of rows) {\n  const bucket = String(r.period) === 'current' ? C : P;\n  const k = r.l1_topic;\n  if (!bucket[k]) bucket[k] = { sr:0, cs:0, cr:0, rc:0, rr:0 };\n  bucket[k].sr += N(r.sr_cnt);  bucket[k].cs += N(r.csat_sum);\n  bucket[k].cr += N(r.csat_response_cnt);\n  bucket[k].rc += N(r.rsltn_cnt); bucket[k].rr += N(r.rsltn_response_cnt);\n}\nconst keys = [...new Set([...Object.keys(P), ...Object.keys(C)])];\nconst z = { sr:0, cs:0, cr:0, rc:0, rr:0 };\nconst roll = o => Object.values(o).reduce((a,b)=>({\n  sr:a.sr+b.sr, cs:a.cs+b.cs, cr:a.cr+b.cr, rc:a.rc+b.rc, rr:a.rr+b.rr }), {...z});\n\nconst val = t => metric === 'volume' ? t.sr\n  : metric === 'csat' ? (t.cr ? t.cs / t.cr : null)\n  : (t.rc ? (t.rr / t.rc) * 100 : null);\n\nconst pt = roll(P), ct = roll(C);\nconst totalPrior = val(pt), totalCurrent = val(ct), totalDelta = totalCurrent - totalPrior;\n\n// For CSAT and resolution rate the total is a weighted mean, so a segment's\n// contribution is its share of the weighted-sum change, not its own delta.\nconst drivers = keys.map(k => {\n  const p = P[k] || {...z}, c = C[k] || {...z};\n  const pv = val(p), cv = val(c);\n  let contribution;\n  if (metric === 'volume') {\n    contribution = c.sr - p.sr;\n  } else {\n    const w = metric === 'csat' ? 'cr' : 'rc';\n    // hold the other segments constant: swap this segment's current values into the prior total\n    const swapped = { ...pt };\n    swapped.sr = pt.sr - p.sr + c.sr;\n    swapped.cs = pt.cs - p.cs + c.cs;  swapped.cr = pt.cr - p.cr + c.cr;\n    swapped.rc = pt.rc - p.rc + c.rc;  swapped.rr = pt.rr - p.rr + c.rr;\n    contribution = val(swapped) - totalPrior;\n    void w;\n  }\n  return {\n    l1_topic: k,\n    prior:   pv == null ? null : Number(pv.toFixed(2)),\n    current: cv == null ? null : Number(cv.toFixed(2)),\n    segment_change: (pv == null || cv == null) ? null : Number((cv - pv).toFixed(2)),\n    contribution_to_total: Number(contribution.toFixed(3)),\n    share_of_total_change_pct: totalDelta ? Number(((contribution / totalDelta) * 100).toFixed(1)) : null,\n    sample_size: metric === 'volume' ? c.sr : (metric === 'csat' ? c.cr : c.rc),\n  };\n}).sort((a,b) => Math.abs(b.contribution_to_total) - Math.abs(a.contribution_to_total));\n\n// horizontal bar chart of share of total change\nconst cfg = {\n  type: 'horizontalBar',\n  data: {\n    labels: drivers.map(d => d.l1_topic),\n    datasets: [{\n      label: 'Share of total change (%)',\n      data: drivers.map(d => d.share_of_total_change_pct),\n      backgroundColor: drivers.map(d =>\n        (d.contribution_to_total < 0) === (totalDelta < 0) ? '#c2410c' : '#1f9d55'),\n    }],\n  },\n  options: {\n    title: { display: true, text: `What drove the ${metric} change \u2014 ${inp.country === 'ALL' ? 'all countries' : inp.country}` },\n    legend: { display: false },\n    scales: { xAxes: [{ scaleLabel: { display: true, labelString: '% of total change' } }] },\n  },\n};\nconst url = 'https://quickchart.io/chart?w=700&h=320&bkg=white&c=' + encodeURIComponent(JSON.stringify(cfg));\n\nreturn [{ json: {\n  metric,\n  scope: inp.country === 'ALL' ? 'all countries' : inp.country,\n  prior_period: inp.prior_start + ' to ' + inp.prior_end,\n  current_period: inp.current_start + ' to ' + inp.current_end,\n  total_prior: totalPrior == null ? null : Number(totalPrior.toFixed(2)),\n  total_current: totalCurrent == null ? null : Number(totalCurrent.toFixed(2)),\n  total_change: Number(totalDelta.toFixed(2)),\n  drivers,\n  chart_markdown: `![Contribution by topic](${url})`,\n  instruction: 'Copy chart_markdown into your reply verbatim. Report the top drivers by share_of_total_change_pct. Contributions sum to 100% of the total change.',\n}}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        0
+      ],
+      "id": "72d523f7-41ce-4cef-a082-e08fdbd69e7b",
+      "name": "Decompose by topic"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When called by another workflow": {
+      "main": [
+        [
+          {
+            "node": "Defaults",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Defaults": {
+      "main": [
+        [
+          {
+            "node": "Fetch both periods",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch both periods": {
+      "main": [
+        [
+          {
+            "node": "Decompose by topic",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "db89acc2-7d5a-4724-b80c-c656dafadbf3",
+  "meta": {
+    "instanceId": "poc"
+  },
+  "id": "Contribution001",
+  "tags": []
+}

@@ -1,0 +1,434 @@
+{
+  "name": "Evaluation - Deterministic",
+  "nodes": [
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1lzkE1gFPZSZJ-76QhKsIVpsYlOS9kq-s-STErfDK2TY",
+          "mode": "list",
+          "cachedResultName": "n8n_evals",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1lzkE1gFPZSZJ-76QhKsIVpsYlOS9kq-s-STErfDK2TY/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 912739368,
+          "mode": "list",
+          "cachedResultName": "deterministic",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1lzkE1gFPZSZJ-76QhKsIVpsYlOS9kq-s-STErfDK2TY/edit#gid=912739368"
+        }
+      },
+      "type": "n8n-nodes-base.evaluationTrigger",
+      "typeVersion": 4.6,
+      "position": [
+        -688,
+        144
+      ],
+      "id": "3063dbdd-09ea-41f1-8819-8c56ed820a25",
+      "name": "Evaluation Trigger",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "b7EUrmI5LQEYOhEN",
+          "name": "Google Sheets account"
+        }
+      },
+      "notes": "Source defaults to a Data Table named eval_deterministic. If your n8n version doesn't support Data Tables, switch Source to Google Sheets and import eval/eval_deterministic.csv there instead - the row shape is identical."
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ebe00d90-0723-45c2-bba7-f16ee6d34bcb",
+              "name": "id",
+              "type": "string",
+              "value": "={{ $json.id }}"
+            },
+            {
+              "id": "d70d3cef-dd05-41c0-9910-8f485a096904",
+              "name": "target",
+              "type": "string",
+              "value": "={{ $json.target }}"
+            },
+            {
+              "id": "648014d5-5530-40c7-9bcd-e77f5b434bc1",
+              "name": "params",
+              "type": "object",
+              "value": "={{ JSON.parse($json.params_json) }}"
+            },
+            {
+              "id": "52ad990b-ec59-4859-aac7-d5d8b77eb98f",
+              "name": "expected_field",
+              "type": "string",
+              "value": "={{ $json.expected_field }}"
+            },
+            {
+              "id": "908f4792-39bc-4992-83bb-64909335b6e3",
+              "name": "expected_value",
+              "type": "string",
+              "value": "={{ $json.expected_value }}"
+            },
+            {
+              "id": "856a3c51-4a44-4543-a822-2f087c4e98b9",
+              "name": "tolerance",
+              "type": "string",
+              "value": "={{ $json.tolerance }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -464,
+        144
+      ],
+      "id": "94bd1ce6-aa1a-4c97-a619-6dd4c9bf25b5",
+      "name": "Map row"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "0ab2e9e1-bd85-4dc9-bbce-53a6f4ffaaf2",
+                    "leftValue": "={{ $json.target }}",
+                    "rightValue": "insight_engine",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "insight_engine"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "7f409816-c390-4405-8768-675710c9300d",
+                    "leftValue": "={{ $json.target }}",
+                    "rightValue": "contribution_analysis",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "contribution_analysis"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "011fbbf3-3b1e-4216-b7cd-7a34a9355139",
+                    "leftValue": "={{ $json.target }}",
+                    "rightValue": "trend_chart",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "trend_chart"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -240,
+        144
+      ],
+      "id": "56d0ed84-620a-4942-b27c-17a01d7a5dd8",
+      "name": "Route by target"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "Ja6m9bFwklG90ynu",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/Ja6m9bFwklG90ynu",
+          "cachedResultName": "Analytics Hub — Insight Engine"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        -32
+      ],
+      "id": "952da956-ba09-4e2d-a715-1cf55d6a77f6",
+      "name": "Call Insight Engine"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "mdLaPlBDkYwAyPU6",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/mdLaPlBDkYwAyPU6",
+          "cachedResultName": "Analytics Hub — Contribution Analysis"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "metric": "={{ $json.params.metric }}",
+            "prior_start": "={{ $json.params.prior_start }}",
+            "prior_end": "={{ $json.params.prior_end }}",
+            "current_start": "={{ $json.params.current_start }}",
+            "current_end": "={{ $json.params.current_end }}",
+            "country": "={{ $json.params.country }}",
+            "channel": "={{ $json.params.channel }}"
+          },
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        160
+      ],
+      "id": "e8e1f3d2-36a2-41f1-bf0d-739c54b8fbdf",
+      "name": "Call Contribution Analysis"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "tvCrWpQkyfBiEVdK",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/tvCrWpQkyfBiEVdK",
+          "cachedResultName": "Analytics Hub — Trend Chart"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "metric": "={{ $json.params.metric }}",
+            "weeks": "={{ $json.params.weeks }}",
+            "country": "={{ $json.params.country }}",
+            "l1_topic": "={{ $json.params.l1_topic }}",
+            "channel": "={{ $json.params.channel }}"
+          },
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        336
+      ],
+      "id": "74f1c404-b08b-4db0-85ee-ca5db4259f2f",
+      "name": "Call Trend Chart"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Deterministic pass/fail grading. No LLM. Compares actual sub-workflow output\n// against the expected value declared in the eval dataset row.\nconst row = $('Map row').first().json;\nconst result = $input.first().json;\n\nfunction extract(field) {\n  if (field === 'anomaly_count') return result.anomaly_count;\n  if (field === 'top_driver_topic') return (result.drivers && result.drivers[0]) ? result.drivers[0].l1_topic : null;\n  if (field === 'top_driver_share_pct') return (result.drivers && result.drivers[0]) ? Math.abs(result.drivers[0].share_of_total_change_pct) : null;\n  if (field === 'chart_markdown_present') return (result.chart_markdown && result.chart_markdown.startsWith('!['))  ? 1 : 0;\n  return null;\n}\n\nconst actual = extract(row.expected_field);\nconst expected = row.expected_value;\nconst tol = row.tolerance;\n\nlet pass = 0;\nlet detail = '';\n\nif (tol === 'exact') {\n  pass = (String(actual) === String(expected)) ? 1 : 0;\n  detail = `exact match: actual=\"${actual}\" expected=\"${expected}\"`;\n} else {\n  const a = Number(actual), e = Number(expected), t = Number(tol);\n  pass = (Number.isFinite(a) && Math.abs(a - e) <= t) ? 1 : 0;\n  detail = `tolerance ${t}: actual=${a} expected=${e} abs_diff=${Number.isFinite(a) ? Math.abs(a - e).toFixed(2) : 'n/a'}`;\n}\n\nreturn [{ json: {\n  id: row.id,\n  expected_value: row.expected_value,\n  tolerance: row.tolerance,\n  target: row.target,\n  expected_field: row.expected_field,\n  pass,\n  detail,\n  actual_raw: actual,\n}}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        224,
+        144
+      ],
+      "id": "95251164-c56f-482b-aed7-9ea011865cff",
+      "name": "Grade result"
+    },
+    {
+      "parameters": {
+        "operation": "setMetrics",
+        "metrics": {
+          "assignments": [
+            {
+              "id": "02d17c98-6f1f-4c44-8ec0-6e77893e4ad1",
+              "name": "pass",
+              "value": "={{ $json.pass }}",
+              "type": "number"
+            },
+            {
+              "id": "588ec8df-0127-4eb7-ac0a-38bed535392f",
+              "name": "abs_error",
+              "value": "={{ $json.tolerance === 'exact' ? ($json.pass ? 0 : 1) : Math.abs(Number($json.actual_raw) - Number($json.expected_value)) }}",
+              "type": "number"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.evaluation",
+      "typeVersion": 4.6,
+      "position": [
+        448,
+        144
+      ],
+      "id": "dda21eed-2723-4def-ba61-6568265cc84b",
+      "name": "Record metrics"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Evaluation Trigger": {
+      "main": [
+        [
+          {
+            "node": "Map row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Map row": {
+      "main": [
+        [
+          {
+            "node": "Route by target",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route by target": {
+      "main": [
+        [
+          {
+            "node": "Call Insight Engine",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Call Contribution Analysis",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Call Trend Chart",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call Insight Engine": {
+      "main": [
+        [
+          {
+            "node": "Grade result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call Contribution Analysis": {
+      "main": [
+        [
+          {
+            "node": "Grade result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call Trend Chart": {
+      "main": [
+        [
+          {
+            "node": "Grade result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Grade result": {
+      "main": [
+        [
+          {
+            "node": "Record metrics",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "ad56ed39-4889-44dd-98d1-21b79120d0aa",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "bb02e0b95637113133eb5a1ee57136a8b1642d920e6857a094edf85f17a8a438"
+  },
+  "nodeGroups": [],
+  "id": "ZzG79HYNkNgSb3zg",
+  "tags": []
+}

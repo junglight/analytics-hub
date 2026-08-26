@@ -1,0 +1,1459 @@
+cs_week_beg_dt,country,channel_type,l1_topic,sr_cnt,csat_sum,csat_response_cnt,rsltn_cnt,rsltn_response_cnt
+2026-02-02,US,Phone,Returns & Refunds,687,641,163,627,465
+2026-02-02,US,Chat,Returns & Refunds,578,553,144,506,375
+2026-02-02,US,Email,Returns & Refunds,322,311,82,300,202
+2026-02-02,US,Phone,Shipping & Delivery,643,643,163,575,434
+2026-02-02,US,Chat,Shipping & Delivery,504,519,131,436,329
+2026-02-02,US,Email,Shipping & Delivery,279,246,66,255,176
+2026-02-02,US,Phone,Payments & Payouts,421,334,84,385,294
+2026-02-02,US,Chat,Payments & Payouts,328,307,79,295,214
+2026-02-02,US,Email,Payments & Payouts,193,190,50,179,122
+2026-02-02,US,Phone,Listing & Selling,411,306,76,367,302
+2026-02-02,US,Chat,Listing & Selling,333,248,62,301,246
+2026-02-02,US,Email,Listing & Selling,188,185,47,175,130
+2026-02-02,US,Phone,Account Access,320,319,80,281,232
+2026-02-02,US,Chat,Account Access,263,217,55,237,188
+2026-02-02,US,Email,Account Access,146,124,32,129,95
+2026-02-02,US,Phone,Buyer & Seller Disputes,244,196,53,220,158
+2026-02-02,US,Chat,Buyer & Seller Disputes,190,179,48,172,115
+2026-02-02,US,Email,Buyer & Seller Disputes,105,83,23,91,56
+2026-02-02,UK,Phone,Returns & Refunds,253,226,59,227,166
+2026-02-02,UK,Chat,Returns & Refunds,192,150,39,173,125
+2026-02-02,UK,Email,Returns & Refunds,118,112,30,103,69
+2026-02-02,UK,Phone,Shipping & Delivery,221,197,50,203,152
+2026-02-02,UK,Chat,Shipping & Delivery,180,145,37,166,124
+2026-02-02,UK,Email,Shipping & Delivery,96,79,21,88,60
+2026-02-02,UK,Phone,Payments & Payouts,167,145,37,152,114
+2026-02-02,UK,Chat,Payments & Payouts,121,89,23,113,84
+2026-02-02,UK,Email,Payments & Payouts,71,60,16,67,44
+2026-02-02,UK,Phone,Listing & Selling,150,152,37,132,105
+2026-02-02,UK,Chat,Listing & Selling,123,117,29,107,83
+2026-02-02,UK,Email,Listing & Selling,69,58,15,64,48
+2026-02-02,UK,Phone,Account Access,118,113,28,102,83
+2026-02-02,UK,Chat,Account Access,95,80,20,89,68
+2026-02-02,UK,Email,Account Access,57,42,11,51,37
+2026-02-02,UK,Phone,Buyer & Seller Disputes,99,83,23,90,62
+2026-02-02,UK,Chat,Buyer & Seller Disputes,79,59,16,68,45
+2026-02-02,UK,Email,Buyer & Seller Disputes,41,28,8,37,22
+2026-02-02,DE,Phone,Returns & Refunds,174,157,41,160,118
+2026-02-02,DE,Chat,Returns & Refunds,131,97,26,115,81
+2026-02-02,DE,Email,Returns & Refunds,76,62,17,68,43
+2026-02-02,DE,Phone,Shipping & Delivery,158,129,34,141,104
+2026-02-02,DE,Chat,Shipping & Delivery,118,100,26,108,77
+2026-02-02,DE,Email,Shipping & Delivery,68,44,12,62,40
+2026-02-02,DE,Phone,Payments & Payouts,103,94,25,90,66
+2026-02-02,DE,Chat,Payments & Payouts,75,73,19,67,49
+2026-02-02,DE,Email,Payments & Payouts,46,32,9,41,26
+2026-02-02,DE,Phone,Listing & Selling,97,81,20,89,70
+2026-02-02,DE,Chat,Listing & Selling,79,63,16,68,54
+2026-02-02,DE,Email,Listing & Selling,46,42,11,43,32
+2026-02-02,DE,Phone,Account Access,82,66,17,73,56
+2026-02-02,DE,Chat,Account Access,61,50,13,57,44
+2026-02-02,DE,Email,Account Access,34,30,8,32,22
+2026-02-02,DE,Phone,Buyer & Seller Disputes,57,53,15,53,37
+2026-02-02,DE,Chat,Buyer & Seller Disputes,47,39,11,42,27
+2026-02-02,DE,Email,Buyer & Seller Disputes,25,21,6,22,13
+2026-02-09,US,Phone,Returns & Refunds,746,657,167,665,491
+2026-02-09,US,Chat,Returns & Refunds,564,432,112,489,360
+2026-02-09,US,Email,Returns & Refunds,311,273,72,273,181
+2026-02-09,US,Phone,Shipping & Delivery,618,480,122,544,426
+2026-02-09,US,Chat,Shipping & Delivery,473,426,109,423,310
+2026-02-09,US,Email,Shipping & Delivery,269,220,58,245,165
+2026-02-09,US,Phone,Payments & Payouts,399,397,101,363,271
+2026-02-09,US,Chat,Payments & Payouts,322,304,77,296,221
+2026-02-09,US,Email,Payments & Payouts,174,164,43,157,109
+2026-02-09,US,Phone,Listing & Selling,356,279,68,324,274
+2026-02-09,US,Chat,Listing & Selling,291,246,60,260,208
+2026-02-09,US,Email,Listing & Selling,172,124,32,152,114
+2026-02-09,US,Phone,Account Access,313,288,71,280,222
+2026-02-09,US,Chat,Account Access,233,190,47,200,157
+2026-02-09,US,Email,Account Access,137,111,29,120,90
+2026-02-09,US,Phone,Buyer & Seller Disputes,236,208,56,215,150
+2026-02-09,US,Chat,Buyer & Seller Disputes,179,143,39,164,114
+2026-02-09,US,Email,Buyer & Seller Disputes,107,78,22,93,59
+2026-02-09,UK,Phone,Returns & Refunds,259,211,54,230,168
+2026-02-09,UK,Chat,Returns & Refunds,209,207,54,184,130
+2026-02-09,UK,Email,Returns & Refunds,117,103,28,103,68
+2026-02-09,UK,Phone,Shipping & Delivery,219,171,44,190,142
+2026-02-09,UK,Chat,Shipping & Delivery,184,183,47,167,122
+2026-02-09,UK,Email,Shipping & Delivery,99,78,21,86,57
+2026-02-09,UK,Phone,Payments & Payouts,159,114,29,139,102
+2026-02-09,UK,Chat,Payments & Payouts,128,115,30,117,86
+2026-02-09,UK,Email,Payments & Payouts,72,63,17,64,43
+2026-02-09,UK,Phone,Listing & Selling,156,127,31,137,113
+2026-02-09,UK,Chat,Listing & Selling,126,125,31,109,88
+2026-02-09,UK,Email,Listing & Selling,70,62,16,61,44
+2026-02-09,UK,Phone,Account Access,117,91,23,108,87
+2026-02-09,UK,Chat,Account Access,95,94,24,89,68
+2026-02-09,UK,Email,Account Access,50,51,13,45,32
+2026-02-09,UK,Phone,Buyer & Seller Disputes,92,62,17,84,60
+2026-02-09,UK,Chat,Buyer & Seller Disputes,73,65,18,68,46
+2026-02-09,UK,Email,Buyer & Seller Disputes,40,35,10,35,22
+2026-02-09,DE,Phone,Returns & Refunds,158,113,30,145,102
+2026-02-09,DE,Chat,Returns & Refunds,131,94,25,113,81
+2026-02-09,DE,Email,Returns & Refunds,74,61,17,67,42
+2026-02-09,DE,Phone,Shipping & Delivery,128,92,24,115,84
+2026-02-09,DE,Chat,Shipping & Delivery,104,91,24,93,68
+2026-02-09,DE,Email,Shipping & Delivery,58,48,13,51,34
+2026-02-09,DE,Phone,Payments & Payouts,103,92,24,93,67
+2026-02-09,DE,Chat,Payments & Payouts,76,73,19,69,50
+2026-02-09,DE,Email,Payments & Payouts,44,36,10,41,27
+2026-02-09,DE,Phone,Listing & Selling,89,68,17,77,62
+2026-02-09,DE,Chat,Listing & Selling,69,55,14,59,47
+2026-02-09,DE,Email,Listing & Selling,40,39,10,36,26
+2026-02-09,DE,Phone,Account Access,75,59,15,67,54
+2026-02-09,DE,Chat,Account Access,56,58,15,52,40
+2026-02-09,DE,Email,Account Access,33,30,8,30,21
+2026-02-09,DE,Phone,Buyer & Seller Disputes,54,44,12,47,33
+2026-02-09,DE,Chat,Buyer & Seller Disputes,40,32,9,36,24
+2026-02-09,DE,Email,Buyer & Seller Disputes,24,20,6,21,13
+2026-02-16,US,Phone,Returns & Refunds,699,654,166,616,454
+2026-02-16,US,Chat,Returns & Refunds,583,475,120,507,380
+2026-02-16,US,Email,Returns & Refunds,321,227,61,278,190
+2026-02-16,US,Phone,Shipping & Delivery,612,610,155,552,430
+2026-02-16,US,Chat,Shipping & Delivery,477,362,91,437,326
+2026-02-16,US,Email,Shipping & Delivery,250,186,49,215,147
+2026-02-16,US,Phone,Payments & Payouts,467,365,93,410,317
+2026-02-16,US,Chat,Payments & Payouts,365,310,79,340,251
+2026-02-16,US,Email,Payments & Payouts,196,169,45,172,116
+2026-02-16,US,Phone,Listing & Selling,402,318,78,346,284
+2026-02-16,US,Chat,Listing & Selling,311,306,74,284,232
+2026-02-16,US,Email,Listing & Selling,174,158,40,154,113
+2026-02-16,US,Phone,Account Access,308,270,66,275,220
+2026-02-16,US,Chat,Account Access,245,251,62,216,174
+2026-02-16,US,Email,Account Access,143,119,31,123,92
+2026-02-16,US,Phone,Buyer & Seller Disputes,246,236,64,221,159
+2026-02-16,US,Chat,Buyer & Seller Disputes,199,143,38,171,118
+2026-02-16,US,Email,Buyer & Seller Disputes,110,77,22,100,62
+2026-02-16,UK,Phone,Returns & Refunds,225,196,51,211,154
+2026-02-16,UK,Chat,Returns & Refunds,187,169,44,161,115
+2026-02-16,UK,Email,Returns & Refunds,105,74,20,96,62
+2026-02-16,UK,Phone,Shipping & Delivery,204,159,41,181,140
+2026-02-16,UK,Chat,Shipping & Delivery,160,155,40,148,111
+2026-02-16,UK,Email,Shipping & Delivery,91,79,21,84,56
+2026-02-16,UK,Phone,Payments & Payouts,159,132,34,141,105
+2026-02-16,UK,Chat,Payments & Payouts,117,94,24,105,75
+2026-02-16,UK,Email,Payments & Payouts,71,67,18,62,40
+2026-02-16,UK,Phone,Listing & Selling,147,129,32,131,108
+2026-02-16,UK,Chat,Listing & Selling,110,80,20,97,77
+2026-02-16,UK,Email,Listing & Selling,64,59,15,56,42
+2026-02-16,UK,Phone,Account Access,116,116,29,108,87
+2026-02-16,UK,Chat,Account Access,94,91,23,86,68
+2026-02-16,UK,Email,Account Access,52,42,11,47,33
+2026-02-16,UK,Phone,Buyer & Seller Disputes,91,84,23,83,59
+2026-02-16,UK,Chat,Buyer & Seller Disputes,71,62,17,65,44
+2026-02-16,UK,Email,Buyer & Seller Disputes,41,35,10,38,24
+2026-02-16,DE,Phone,Returns & Refunds,163,159,42,151,111
+2026-02-16,DE,Chat,Returns & Refunds,128,94,25,114,82
+2026-02-16,DE,Email,Returns & Refunds,78,58,16,68,44
+2026-02-16,DE,Phone,Shipping & Delivery,127,92,24,115,87
+2026-02-16,DE,Chat,Shipping & Delivery,100,72,19,91,67
+2026-02-16,DE,Email,Shipping & Delivery,56,47,13,51,34
+2026-02-16,DE,Phone,Payments & Payouts,99,80,21,90,67
+2026-02-16,DE,Chat,Payments & Payouts,79,56,15,73,52
+2026-02-16,DE,Email,Payments & Payouts,43,37,10,38,25
+2026-02-16,DE,Phone,Listing & Selling,93,92,23,83,67
+2026-02-16,DE,Chat,Listing & Selling,72,55,14,65,52
+2026-02-16,DE,Email,Listing & Selling,40,31,8,36,26
+2026-02-16,DE,Phone,Account Access,73,60,15,68,54
+2026-02-16,DE,Chat,Account Access,59,47,12,55,41
+2026-02-16,DE,Email,Account Access,33,23,6,31,21
+2026-02-16,DE,Phone,Buyer & Seller Disputes,58,43,12,52,34
+2026-02-16,DE,Chat,Buyer & Seller Disputes,44,35,10,39,25
+2026-02-16,DE,Email,Buyer & Seller Disputes,24,17,5,22,14
+2026-02-23,US,Phone,Returns & Refunds,725,627,161,672,501
+2026-02-23,US,Chat,Returns & Refunds,563,560,142,514,375
+2026-02-23,US,Email,Returns & Refunds,321,215,58,276,190
+2026-02-23,US,Phone,Shipping & Delivery,571,529,133,532,416
+2026-02-23,US,Chat,Shipping & Delivery,467,445,113,426,325
+2026-02-23,US,Email,Shipping & Delivery,267,211,56,243,173
+2026-02-23,US,Phone,Payments & Payouts,425,366,94,376,280
+2026-02-23,US,Chat,Payments & Payouts,343,269,68,307,227
+2026-02-23,US,Email,Payments & Payouts,197,179,47,177,124
+2026-02-23,US,Phone,Listing & Selling,409,318,78,384,327
+2026-02-23,US,Chat,Listing & Selling,331,300,73,306,250
+2026-02-23,US,Email,Listing & Selling,194,196,49,175,129
+2026-02-23,US,Phone,Account Access,307,307,76,270,224
+2026-02-23,US,Chat,Account Access,241,207,51,219,175
+2026-02-23,US,Email,Account Access,141,112,29,132,98
+2026-02-23,US,Phone,Buyer & Seller Disputes,245,162,44,225,158
+2026-02-23,US,Chat,Buyer & Seller Disputes,195,154,41,177,123
+2026-02-23,US,Email,Buyer & Seller Disputes,106,94,26,96,61
+2026-02-23,UK,Phone,Returns & Refunds,255,183,47,222,163
+2026-02-23,UK,Chat,Returns & Refunds,201,156,40,189,133
+2026-02-23,UK,Email,Returns & Refunds,117,82,22,103,68
+2026-02-23,UK,Phone,Shipping & Delivery,232,216,55,217,165
+2026-02-23,UK,Chat,Shipping & Delivery,182,164,42,159,118
+2026-02-23,UK,Email,Shipping & Delivery,97,72,19,88,61
+2026-02-23,UK,Phone,Payments & Payouts,151,117,30,139,106
+2026-02-23,UK,Chat,Payments & Payouts,116,94,24,107,77
+2026-02-23,UK,Email,Payments & Payouts,68,52,14,60,39
+2026-02-23,UK,Phone,Listing & Selling,132,123,30,120,99
+2026-02-23,UK,Chat,Listing & Selling,103,96,24,90,71
+2026-02-23,UK,Email,Listing & Selling,60,47,12,55,40
+2026-02-23,UK,Phone,Account Access,113,97,24,105,83
+2026-02-23,UK,Chat,Account Access,88,67,17,80,61
+2026-02-23,UK,Email,Account Access,52,46,12,48,35
+2026-02-23,UK,Phone,Buyer & Seller Disputes,81,70,19,74,51
+2026-02-23,UK,Chat,Buyer & Seller Disputes,63,54,15,57,39
+2026-02-23,UK,Email,Buyer & Seller Disputes,36,28,8,32,19
+2026-02-23,DE,Phone,Returns & Refunds,167,143,38,147,109
+2026-02-23,DE,Chat,Returns & Refunds,124,100,26,117,83
+2026-02-23,DE,Email,Returns & Refunds,71,65,18,65,41
+2026-02-23,DE,Phone,Shipping & Delivery,127,118,31,115,85
+2026-02-23,DE,Chat,Shipping & Delivery,101,87,23,93,68
+2026-02-23,DE,Email,Shipping & Delivery,58,47,13,54,35
+2026-02-23,DE,Phone,Payments & Payouts,98,92,24,85,62
+2026-02-23,DE,Chat,Payments & Payouts,74,62,16,70,49
+2026-02-23,DE,Email,Payments & Payouts,45,40,11,41,27
+2026-02-23,DE,Phone,Listing & Selling,89,88,22,83,68
+2026-02-23,DE,Chat,Listing & Selling,72,63,16,66,51
+2026-02-23,DE,Email,Listing & Selling,39,31,8,34,24
+2026-02-23,DE,Phone,Account Access,72,71,18,66,52
+2026-02-23,DE,Chat,Account Access,53,51,13,47,36
+2026-02-23,DE,Email,Account Access,31,23,6,28,20
+2026-02-23,DE,Phone,Buyer & Seller Disputes,53,47,13,49,33
+2026-02-23,DE,Chat,Buyer & Seller Disputes,41,33,9,35,23
+2026-02-23,DE,Email,Buyer & Seller Disputes,24,21,6,21,13
+2026-03-02,US,Phone,Returns & Refunds,711,614,158,625,483
+2026-03-02,US,Chat,Returns & Refunds,523,496,126,477,356
+2026-03-02,US,Email,Returns & Refunds,319,309,81,281,193
+2026-03-02,US,Phone,Shipping & Delivery,622,633,158,583,455
+2026-03-02,US,Chat,Shipping & Delivery,502,390,100,457,342
+2026-03-02,US,Email,Shipping & Delivery,286,239,63,266,182
+2026-03-02,US,Phone,Payments & Payouts,457,375,96,424,330
+2026-03-02,US,Chat,Payments & Payouts,362,356,91,329,250
+2026-03-02,US,Email,Payments & Payouts,202,173,45,188,131
+2026-03-02,US,Phone,Listing & Selling,383,322,77,357,293
+2026-03-02,US,Chat,Listing & Selling,323,296,72,288,232
+2026-03-02,US,Email,Listing & Selling,180,137,35,164,122
+2026-03-02,US,Phone,Account Access,344,257,63,305,250
+2026-03-02,US,Chat,Account Access,257,208,51,223,180
+2026-03-02,US,Email,Account Access,145,110,28,131,94
+2026-03-02,US,Phone,Buyer & Seller Disputes,245,222,60,213,155
+2026-03-02,US,Chat,Buyer & Seller Disputes,188,151,41,171,117
+2026-03-02,US,Email,Buyer & Seller Disputes,109,85,24,98,63
+2026-03-02,UK,Phone,Returns & Refunds,256,207,53,227,165
+2026-03-02,UK,Chat,Returns & Refunds,202,157,41,180,128
+2026-03-02,UK,Email,Returns & Refunds,119,98,26,104,69
+2026-03-02,UK,Phone,Shipping & Delivery,225,213,54,196,151
+2026-03-02,UK,Chat,Shipping & Delivery,176,135,35,152,113
+2026-03-02,UK,Email,Shipping & Delivery,92,75,20,81,54
+2026-03-02,UK,Phone,Payments & Payouts,153,116,30,132,100
+2026-03-02,UK,Chat,Payments & Payouts,123,89,23,110,80
+2026-03-02,UK,Email,Payments & Payouts,72,52,14,63,43
+2026-03-02,UK,Phone,Listing & Selling,156,165,40,135,112
+2026-03-02,UK,Chat,Listing & Selling,119,104,26,111,91
+2026-03-02,UK,Email,Listing & Selling,67,62,16,58,43
+2026-03-02,UK,Phone,Account Access,121,88,22,113,89
+2026-03-02,UK,Chat,Account Access,95,85,21,88,67
+2026-03-02,UK,Email,Account Access,54,39,10,48,34
+2026-03-02,UK,Phone,Buyer & Seller Disputes,84,60,16,78,53
+2026-03-02,UK,Chat,Buyer & Seller Disputes,65,43,12,56,38
+2026-03-02,UK,Email,Buyer & Seller Disputes,39,35,10,36,22
+2026-03-02,DE,Phone,Returns & Refunds,177,153,40,158,112
+2026-03-02,DE,Chat,Returns & Refunds,134,96,25,120,86
+2026-03-02,DE,Email,Returns & Refunds,76,51,14,68,44
+2026-03-02,DE,Phone,Shipping & Delivery,151,119,31,134,98
+2026-03-02,DE,Chat,Shipping & Delivery,114,102,27,106,77
+2026-03-02,DE,Email,Shipping & Delivery,69,63,17,62,40
+2026-03-02,DE,Phone,Payments & Payouts,103,81,21,89,65
+2026-03-02,DE,Chat,Payments & Payouts,87,61,16,78,57
+2026-03-02,DE,Email,Payments & Payouts,49,47,13,44,29
+2026-03-02,DE,Phone,Listing & Selling,101,103,26,89,71
+2026-03-02,DE,Chat,Listing & Selling,83,64,16,75,59
+2026-03-02,DE,Email,Listing & Selling,46,34,9,42,30
+2026-03-02,DE,Phone,Account Access,80,80,20,72,55
+2026-03-02,DE,Chat,Account Access,61,59,15,56,42
+2026-03-02,DE,Email,Account Access,33,26,7,28,20
+2026-03-02,DE,Phone,Buyer & Seller Disputes,62,50,14,56,37
+2026-03-02,DE,Chat,Buyer & Seller Disputes,49,44,12,45,30
+2026-03-02,DE,Email,Buyer & Seller Disputes,28,21,6,25,15
+2026-03-09,US,Phone,Returns & Refunds,649,545,138,574,430
+2026-03-09,US,Chat,Returns & Refunds,494,488,124,426,321
+2026-03-09,US,Email,Returns & Refunds,309,250,66,286,188
+2026-03-09,US,Phone,Shipping & Delivery,544,547,136,490,379
+2026-03-09,US,Chat,Shipping & Delivery,431,355,89,396,295
+2026-03-09,US,Email,Shipping & Delivery,241,177,47,223,158
+2026-03-09,US,Phone,Payments & Payouts,387,334,84,340,258
+2026-03-09,US,Chat,Payments & Payouts,312,262,67,282,207
+2026-03-09,US,Email,Payments & Payouts,170,158,42,149,104
+2026-03-09,US,Phone,Listing & Selling,396,411,99,357,294
+2026-03-09,US,Chat,Listing & Selling,291,281,69,269,220
+2026-03-09,US,Email,Listing & Selling,172,151,38,148,114
+2026-03-09,US,Phone,Account Access,343,254,63,310,257
+2026-03-09,US,Chat,Account Access,253,259,64,229,181
+2026-03-09,US,Email,Account Access,153,133,34,133,97
+2026-03-09,US,Phone,Buyer & Seller Disputes,251,177,48,225,157
+2026-03-09,US,Chat,Buyer & Seller Disputes,182,150,41,165,117
+2026-03-09,US,Email,Buyer & Seller Disputes,110,71,20,99,63
+2026-03-09,UK,Phone,Returns & Refunds,259,257,65,224,164
+2026-03-09,UK,Chat,Returns & Refunds,202,156,40,180,132
+2026-03-09,UK,Email,Returns & Refunds,124,120,32,108,73
+2026-03-09,UK,Phone,Shipping & Delivery,243,206,53,227,174
+2026-03-09,UK,Chat,Shipping & Delivery,182,152,39,160,117
+2026-03-09,UK,Email,Shipping & Delivery,108,80,21,97,67
+2026-03-09,UK,Phone,Payments & Payouts,164,130,33,152,117
+2026-03-09,UK,Chat,Payments & Payouts,124,109,28,114,85
+2026-03-09,UK,Email,Payments & Payouts,69,52,14,62,41
+2026-03-09,UK,Phone,Listing & Selling,143,121,30,132,110
+2026-03-09,UK,Chat,Listing & Selling,107,81,20,98,80
+2026-03-09,UK,Email,Listing & Selling,67,63,16,58,44
+2026-03-09,UK,Phone,Account Access,127,101,25,113,90
+2026-03-09,UK,Chat,Account Access,104,80,20,96,74
+2026-03-09,UK,Email,Account Access,55,47,12,51,37
+2026-03-09,UK,Phone,Buyer & Seller Disputes,90,77,21,83,58
+2026-03-09,UK,Chat,Buyer & Seller Disputes,69,52,14,63,43
+2026-03-09,UK,Email,Buyer & Seller Disputes,40,28,8,36,22
+2026-03-09,DE,Phone,Returns & Refunds,166,128,33,152,112
+2026-03-09,DE,Chat,Returns & Refunds,135,107,28,122,85
+2026-03-09,DE,Email,Returns & Refunds,75,65,18,69,44
+2026-03-09,DE,Phone,Shipping & Delivery,151,130,34,136,104
+2026-03-09,DE,Chat,Shipping & Delivery,114,112,29,106,78
+2026-03-09,DE,Email,Shipping & Delivery,63,48,13,58,38
+2026-03-09,DE,Phone,Payments & Payouts,102,96,25,96,69
+2026-03-09,DE,Chat,Payments & Payouts,82,72,19,72,51
+2026-03-09,DE,Email,Payments & Payouts,45,33,9,39,26
+2026-03-09,DE,Phone,Listing & Selling,95,71,18,83,68
+2026-03-09,DE,Chat,Listing & Selling,75,72,18,66,51
+2026-03-09,DE,Email,Listing & Selling,44,38,10,38,27
+2026-03-09,DE,Phone,Account Access,80,63,16,70,55
+2026-03-09,DE,Chat,Account Access,60,43,11,53,41
+2026-03-09,DE,Email,Account Access,36,31,8,33,23
+2026-03-09,DE,Phone,Buyer & Seller Disputes,62,58,16,57,39
+2026-03-09,DE,Chat,Buyer & Seller Disputes,44,39,11,38,25
+2026-03-09,DE,Email,Buyer & Seller Disputes,25,21,6,22,13
+2026-03-16,US,Phone,Returns & Refunds,624,457,117,580,433
+2026-03-16,US,Chat,Returns & Refunds,502,405,103,456,345
+2026-03-16,US,Email,Returns & Refunds,275,233,62,249,173
+2026-03-16,US,Phone,Shipping & Delivery,599,602,150,522,405
+2026-03-16,US,Chat,Shipping & Delivery,427,410,104,391,296
+2026-03-16,US,Email,Shipping & Delivery,262,203,53,237,164
+2026-03-16,US,Phone,Payments & Payouts,400,343,87,354,266
+2026-03-16,US,Chat,Payments & Payouts,312,277,70,288,220
+2026-03-16,US,Email,Payments & Payouts,183,147,39,169,118
+2026-03-16,US,Phone,Listing & Selling,397,345,84,351,290
+2026-03-16,US,Chat,Listing & Selling,290,224,54,264,216
+2026-03-16,US,Email,Listing & Selling,164,162,41,149,115
+2026-03-16,US,Phone,Account Access,308,227,56,280,226
+2026-03-16,US,Chat,Account Access,239,199,49,214,166
+2026-03-16,US,Email,Account Access,141,130,33,126,94
+2026-03-16,US,Phone,Buyer & Seller Disputes,254,247,65,239,167
+2026-03-16,US,Chat,Buyer & Seller Disputes,192,178,48,172,120
+2026-03-16,US,Email,Buyer & Seller Disputes,104,68,19,95,61
+2026-03-16,UK,Phone,Returns & Refunds,249,221,56,227,169
+2026-03-16,UK,Chat,Returns & Refunds,201,181,47,187,137
+2026-03-16,UK,Email,Returns & Refunds,107,93,25,98,66
+2026-03-16,UK,Phone,Shipping & Delivery,229,172,43,212,159
+2026-03-16,UK,Chat,Shipping & Delivery,177,155,40,157,115
+2026-03-16,UK,Email,Shipping & Delivery,101,72,19,90,61
+2026-03-16,UK,Phone,Payments & Payouts,151,105,27,135,103
+2026-03-16,UK,Chat,Payments & Payouts,115,89,23,105,78
+2026-03-16,UK,Email,Payments & Payouts,70,61,16,66,45
+2026-03-16,UK,Phone,Listing & Selling,157,117,29,136,114
+2026-03-16,UK,Chat,Listing & Selling,114,106,26,105,85
+2026-03-16,UK,Email,Listing & Selling,71,51,13,64,48
+2026-03-16,UK,Phone,Account Access,121,117,29,113,89
+2026-03-16,UK,Chat,Account Access,92,75,19,79,63
+2026-03-16,UK,Email,Account Access,57,43,11,50,36
+2026-03-16,UK,Phone,Buyer & Seller Disputes,92,77,21,80,57
+2026-03-16,UK,Chat,Buyer & Seller Disputes,71,51,14,62,41
+2026-03-16,UK,Email,Buyer & Seller Disputes,41,35,10,35,22
+2026-03-16,DE,Phone,Returns & Refunds,170,123,32,158,116
+2026-03-16,DE,Chat,Returns & Refunds,132,94,25,117,81
+2026-03-16,DE,Email,Returns & Refunds,73,62,17,64,42
+2026-03-16,DE,Phone,Shipping & Delivery,135,133,34,123,93
+2026-03-16,DE,Chat,Shipping & Delivery,107,89,23,100,73
+2026-03-16,DE,Email,Shipping & Delivery,58,52,14,50,33
+2026-03-16,DE,Phone,Payments & Payouts,97,70,18,86,65
+2026-03-16,DE,Chat,Payments & Payouts,77,73,19,69,51
+2026-03-16,DE,Email,Payments & Payouts,44,33,9,38,26
+2026-03-16,DE,Phone,Listing & Selling,89,81,20,80,65
+2026-03-16,DE,Chat,Listing & Selling,69,65,16,63,48
+2026-03-16,DE,Email,Listing & Selling,40,35,9,37,27
+2026-03-16,DE,Phone,Account Access,74,64,16,67,51
+2026-03-16,DE,Chat,Account Access,59,43,11,51,38
+2026-03-16,DE,Email,Account Access,33,30,8,30,21
+2026-03-16,DE,Phone,Buyer & Seller Disputes,53,41,11,49,34
+2026-03-16,DE,Chat,Buyer & Seller Disputes,40,32,9,35,23
+2026-03-16,DE,Email,Buyer & Seller Disputes,23,17,5,20,12
+2026-03-23,US,Phone,Returns & Refunds,692,529,135,635,482
+2026-03-23,US,Chat,Returns & Refunds,558,427,109,514,379
+2026-03-23,US,Email,Returns & Refunds,323,248,66,300,205
+2026-03-23,US,Phone,Shipping & Delivery,579,483,122,518,413
+2026-03-23,US,Chat,Shipping & Delivery,459,327,83,431,320
+2026-03-23,US,Email,Shipping & Delivery,260,238,63,242,170
+2026-03-23,US,Phone,Payments & Payouts,409,371,92,370,284
+2026-03-23,US,Chat,Payments & Payouts,316,300,76,279,208
+2026-03-23,US,Email,Payments & Payouts,188,170,44,171,117
+2026-03-23,US,Phone,Listing & Selling,377,338,82,335,278
+2026-03-23,US,Chat,Listing & Selling,303,291,71,284,238
+2026-03-23,US,Email,Listing & Selling,171,149,37,151,117
+2026-03-23,US,Phone,Account Access,329,340,83,295,245
+2026-03-23,US,Chat,Account Access,257,238,59,230,185
+2026-03-23,US,Email,Account Access,139,140,36,126,92
+2026-03-23,US,Phone,Buyer & Seller Disputes,261,244,65,237,166
+2026-03-23,US,Chat,Buyer & Seller Disputes,203,141,38,178,125
+2026-03-23,US,Email,Buyer & Seller Disputes,111,76,21,97,63
+2026-03-23,UK,Phone,Returns & Refunds,255,253,65,226,172
+2026-03-23,UK,Chat,Returns & Refunds,191,151,39,172,124
+2026-03-23,UK,Email,Returns & Refunds,113,109,29,98,66
+2026-03-23,UK,Phone,Shipping & Delivery,208,164,41,189,144
+2026-03-23,UK,Chat,Shipping & Delivery,160,120,31,149,110
+2026-03-23,UK,Email,Shipping & Delivery,100,83,22,92,62
+2026-03-23,UK,Phone,Payments & Payouts,151,109,28,138,106
+2026-03-23,UK,Chat,Payments & Payouts,123,117,30,115,86
+2026-03-23,UK,Email,Payments & Payouts,71,49,13,63,43
+2026-03-23,UK,Phone,Listing & Selling,155,163,40,139,117
+2026-03-23,UK,Chat,Listing & Selling,110,112,27,100,80
+2026-03-23,UK,Email,Listing & Selling,69,55,14,63,46
+2026-03-23,UK,Phone,Account Access,121,102,25,110,89
+2026-03-23,UK,Chat,Account Access,96,73,18,84,66
+2026-03-23,UK,Email,Account Access,55,54,14,51,37
+2026-03-23,UK,Phone,Buyer & Seller Disputes,90,74,20,79,56
+2026-03-23,UK,Chat,Buyer & Seller Disputes,67,58,16,63,42
+2026-03-23,UK,Email,Buyer & Seller Disputes,39,36,10,35,22
+2026-03-23,DE,Phone,Returns & Refunds,159,111,29,138,100
+2026-03-23,DE,Chat,Returns & Refunds,122,96,25,107,76
+2026-03-23,DE,Email,Returns & Refunds,71,63,17,67,44
+2026-03-23,DE,Phone,Shipping & Delivery,135,106,27,121,90
+2026-03-23,DE,Chat,Shipping & Delivery,106,82,21,92,68
+2026-03-23,DE,Email,Shipping & Delivery,63,56,15,56,36
+2026-03-23,DE,Phone,Payments & Payouts,102,92,24,90,66
+2026-03-23,DE,Chat,Payments & Payouts,76,65,17,71,51
+2026-03-23,DE,Email,Payments & Payouts,44,34,9,40,26
+2026-03-23,DE,Phone,Listing & Selling,93,80,20,84,69
+2026-03-23,DE,Chat,Listing & Selling,74,60,15,68,54
+2026-03-23,DE,Email,Listing & Selling,39,31,8,34,25
+2026-03-23,DE,Phone,Account Access,72,72,18,67,53
+2026-03-23,DE,Chat,Account Access,57,55,14,50,39
+2026-03-23,DE,Email,Account Access,35,27,7,33,23
+2026-03-23,DE,Phone,Buyer & Seller Disputes,53,40,11,49,34
+2026-03-23,DE,Chat,Buyer & Seller Disputes,39,29,8,35,24
+2026-03-23,DE,Email,Buyer & Seller Disputes,24,17,5,21,13
+2026-03-30,US,Phone,Returns & Refunds,699,646,163,646,495
+2026-03-30,US,Chat,Returns & Refunds,510,377,95,472,347
+2026-03-30,US,Email,Returns & Refunds,292,277,72,274,183
+2026-03-30,US,Phone,Shipping & Delivery,608,582,147,535,424
+2026-03-30,US,Chat,Shipping & Delivery,504,402,101,457,349
+2026-03-30,US,Email,Shipping & Delivery,263,214,56,234,168
+2026-03-30,US,Phone,Payments & Payouts,425,318,79,374,291
+2026-03-30,US,Chat,Payments & Payouts,315,258,66,274,205
+2026-03-30,US,Email,Payments & Payouts,180,142,37,155,106
+2026-03-30,US,Phone,Listing & Selling,402,430,103,374,307
+2026-03-30,US,Chat,Listing & Selling,298,267,65,276,222
+2026-03-30,US,Email,Listing & Selling,174,175,44,155,120
+2026-03-30,US,Phone,Account Access,334,308,75,293,241
+2026-03-30,US,Chat,Account Access,259,250,61,241,188
+2026-03-30,US,Email,Account Access,147,127,32,127,93
+2026-03-30,US,Phone,Buyer & Seller Disputes,259,183,49,227,161
+2026-03-30,US,Chat,Buyer & Seller Disputes,198,155,41,182,130
+2026-03-30,US,Email,Buyer & Seller Disputes,114,82,23,101,65
+2026-03-30,UK,Phone,Returns & Refunds,253,181,46,219,163
+2026-03-30,UK,Chat,Returns & Refunds,212,185,47,185,134
+2026-03-30,UK,Email,Returns & Refunds,115,83,22,102,69
+2026-03-30,UK,Phone,Shipping & Delivery,216,153,39,192,148
+2026-03-30,UK,Chat,Shipping & Delivery,167,133,34,150,111
+2026-03-30,UK,Email,Shipping & Delivery,98,85,22,87,61
+2026-03-30,UK,Phone,Payments & Payouts,165,123,31,143,107
+2026-03-30,UK,Chat,Payments & Payouts,120,108,27,111,81
+2026-03-30,UK,Email,Payments & Payouts,70,60,16,64,43
+2026-03-30,UK,Phone,Listing & Selling,160,127,31,139,116
+2026-03-30,UK,Chat,Listing & Selling,128,129,32,117,95
+2026-03-30,UK,Email,Listing & Selling,68,72,18,59,45
+2026-03-30,UK,Phone,Account Access,123,98,24,108,86
+2026-03-30,UK,Chat,Account Access,99,77,19,90,70
+2026-03-30,UK,Email,Account Access,59,55,14,54,39
+2026-03-30,UK,Phone,Buyer & Seller Disputes,94,67,18,81,57
+2026-03-30,UK,Chat,Buyer & Seller Disputes,69,48,13,61,41
+2026-03-30,UK,Email,Buyer & Seller Disputes,41,36,10,37,23
+2026-03-30,DE,Phone,Returns & Refunds,162,137,35,148,109
+2026-03-30,DE,Chat,Returns & Refunds,124,98,26,110,78
+2026-03-30,DE,Email,Returns & Refunds,70,55,15,63,40
+2026-03-30,DE,Phone,Shipping & Delivery,148,131,34,138,106
+2026-03-30,DE,Chat,Shipping & Delivery,118,103,27,105,77
+2026-03-30,DE,Email,Shipping & Delivery,67,60,16,58,39
+2026-03-30,DE,Phone,Payments & Payouts,95,82,21,87,66
+2026-03-30,DE,Chat,Payments & Payouts,74,65,17,64,46
+2026-03-30,DE,Email,Payments & Payouts,45,37,10,39,25
+2026-03-30,DE,Phone,Listing & Selling,93,81,20,81,67
+2026-03-30,DE,Chat,Listing & Selling,78,72,18,72,57
+2026-03-30,DE,Email,Listing & Selling,44,35,9,40,30
+2026-03-30,DE,Phone,Account Access,75,68,17,70,56
+2026-03-30,DE,Chat,Account Access,63,47,12,57,44
+2026-03-30,DE,Email,Account Access,36,31,8,34,24
+2026-03-30,DE,Phone,Buyer & Seller Disputes,57,48,13,50,35
+2026-03-30,DE,Chat,Buyer & Seller Disputes,45,29,8,39,26
+2026-03-30,DE,Email,Buyer & Seller Disputes,27,18,5,25,15
+2026-04-06,US,Phone,Returns & Refunds,732,628,159,644,486
+2026-04-06,US,Chat,Returns & Refunds,572,466,117,521,377
+2026-04-06,US,Email,Returns & Refunds,316,308,81,281,192
+2026-04-06,US,Phone,Shipping & Delivery,628,515,129,586,468
+2026-04-06,US,Chat,Shipping & Delivery,486,416,104,427,322
+2026-04-06,US,Email,Shipping & Delivery,259,253,65,235,164
+2026-04-06,US,Phone,Payments & Payouts,436,449,112,381,287
+2026-04-06,US,Chat,Payments & Payouts,345,302,77,307,234
+2026-04-06,US,Email,Payments & Payouts,201,193,51,176,121
+2026-04-06,US,Phone,Listing & Selling,373,286,69,336,286
+2026-04-06,US,Chat,Listing & Selling,314,324,79,276,226
+2026-04-06,US,Email,Listing & Selling,164,128,32,148,114
+2026-04-06,US,Phone,Account Access,311,239,59,270,218
+2026-04-06,US,Chat,Account Access,236,218,53,208,166
+2026-04-06,US,Email,Account Access,132,132,34,120,90
+2026-04-06,US,Phone,Buyer & Seller Disputes,219,188,50,191,136
+2026-04-06,US,Chat,Buyer & Seller Disputes,182,124,33,159,108
+2026-04-06,US,Email,Buyer & Seller Disputes,97,88,24,91,58
+2026-04-06,UK,Phone,Returns & Refunds,243,185,47,213,156
+2026-04-06,UK,Chat,Returns & Refunds,183,152,39,167,118
+2026-04-06,UK,Email,Returns & Refunds,109,91,24,96,65
+2026-04-06,UK,Phone,Shipping & Delivery,217,210,52,196,152
+2026-04-06,UK,Chat,Shipping & Delivery,165,120,30,149,113
+2026-04-06,UK,Email,Shipping & Delivery,92,65,17,80,56
+2026-04-06,UK,Phone,Payments & Payouts,152,143,36,134,99
+2026-04-06,UK,Chat,Payments & Payouts,116,99,25,106,76
+2026-04-06,UK,Email,Payments & Payouts,68,49,13,61,40
+2026-04-06,UK,Phone,Listing & Selling,144,129,31,126,104
+2026-04-06,UK,Chat,Listing & Selling,103,91,22,96,76
+2026-04-06,UK,Email,Listing & Selling,64,64,16,60,46
+2026-04-06,UK,Phone,Account Access,119,121,30,108,85
+2026-04-06,UK,Chat,Account Access,89,76,19,81,64
+2026-04-06,UK,Email,Account Access,53,39,10,47,33
+2026-04-06,UK,Phone,Buyer & Seller Disputes,84,59,16,74,53
+2026-04-06,UK,Chat,Buyer & Seller Disputes,70,62,17,65,45
+2026-04-06,UK,Email,Buyer & Seller Disputes,38,29,8,35,23
+2026-04-06,DE,Phone,Returns & Refunds,162,131,34,144,105
+2026-04-06,DE,Chat,Returns & Refunds,124,121,32,112,80
+2026-04-06,DE,Email,Returns & Refunds,70,52,14,63,41
+2026-04-06,DE,Phone,Shipping & Delivery,126,96,25,118,87
+2026-04-06,DE,Chat,Shipping & Delivery,105,92,24,92,69
+2026-04-06,DE,Email,Shipping & Delivery,61,41,11,54,37
+2026-04-06,DE,Phone,Payments & Payouts,103,77,20,96,71
+2026-04-06,DE,Chat,Payments & Payouts,75,61,16,67,49
+2026-04-06,DE,Email,Payments & Payouts,46,34,9,42,27
+2026-04-06,DE,Phone,Listing & Selling,91,70,17,82,68
+2026-04-06,DE,Chat,Listing & Selling,67,52,13,59,46
+2026-04-06,DE,Email,Listing & Selling,39,38,10,35,26
+2026-04-06,DE,Phone,Account Access,72,67,17,65,50
+2026-04-06,DE,Chat,Account Access,54,48,12,50,39
+2026-04-06,DE,Email,Account Access,32,26,7,30,21
+2026-04-06,DE,Phone,Buyer & Seller Disputes,60,51,14,55,39
+2026-04-06,DE,Chat,Buyer & Seller Disputes,45,40,11,39,26
+2026-04-06,DE,Email,Buyer & Seller Disputes,27,25,7,23,14
+2026-04-13,US,Phone,Returns & Refunds,671,692,173,624,477
+2026-04-13,US,Chat,Returns & Refunds,566,467,118,489,367
+2026-04-13,US,Email,Returns & Refunds,316,220,57,290,192
+2026-04-13,US,Phone,Shipping & Delivery,600,519,127,532,414
+2026-04-13,US,Chat,Shipping & Delivery,451,402,101,411,320
+2026-04-13,US,Email,Shipping & Delivery,255,213,55,225,159
+2026-04-13,US,Phone,Payments & Payouts,463,406,100,430,331
+2026-04-13,US,Chat,Payments & Payouts,359,342,87,312,232
+2026-04-13,US,Email,Payments & Payouts,192,181,47,180,127
+2026-04-13,US,Phone,Listing & Selling,405,340,82,380,313
+2026-04-13,US,Chat,Listing & Selling,318,298,72,276,229
+2026-04-13,US,Email,Listing & Selling,168,153,38,152,119
+2026-04-13,US,Phone,Account Access,345,271,66,304,245
+2026-04-13,US,Chat,Account Access,264,239,59,234,185
+2026-04-13,US,Email,Account Access,151,149,38,140,104
+2026-04-13,US,Phone,Buyer & Seller Disputes,232,218,57,206,147
+2026-04-13,US,Chat,Buyer & Seller Disputes,185,171,46,165,116
+2026-04-13,US,Email,Buyer & Seller Disputes,102,94,26,95,59
+2026-04-13,UK,Phone,Returns & Refunds,276,256,64,250,185
+2026-04-13,UK,Chat,Returns & Refunds,195,174,44,174,124
+2026-04-13,UK,Email,Returns & Refunds,121,115,30,108,74
+2026-04-13,UK,Phone,Shipping & Delivery,214,160,40,189,143
+2026-04-13,UK,Chat,Shipping & Delivery,159,138,35,145,109
+2026-04-13,UK,Email,Shipping & Delivery,97,68,18,91,64
+2026-04-13,UK,Phone,Payments & Payouts,167,159,40,157,118
+2026-04-13,UK,Chat,Payments & Payouts,125,104,26,111,81
+2026-04-13,UK,Email,Payments & Payouts,75,72,19,67,45
+2026-04-13,UK,Phone,Listing & Selling,142,135,33,128,107
+2026-04-13,UK,Chat,Listing & Selling,116,113,28,105,83
+2026-04-13,UK,Email,Listing & Selling,66,51,13,58,43
+2026-04-13,UK,Phone,Account Access,119,103,25,107,85
+2026-04-13,UK,Chat,Account Access,95,81,20,87,69
+2026-04-13,UK,Email,Account Access,57,51,13,51,37
+2026-04-13,UK,Phone,Buyer & Seller Disputes,91,68,18,79,55
+2026-04-13,UK,Chat,Buyer & Seller Disputes,74,55,15,68,46
+2026-04-13,UK,Email,Buyer & Seller Disputes,42,33,9,37,23
+2026-04-13,DE,Phone,Returns & Refunds,171,125,32,159,117
+2026-04-13,DE,Chat,Returns & Refunds,131,107,28,119,84
+2026-04-13,DE,Email,Returns & Refunds,78,56,15,70,45
+2026-04-13,DE,Phone,Shipping & Delivery,140,130,33,130,98
+2026-04-13,DE,Chat,Shipping & Delivery,111,84,22,100,74
+2026-04-13,DE,Email,Shipping & Delivery,63,53,14,57,39
+2026-04-13,DE,Phone,Payments & Payouts,99,82,21,88,66
+2026-04-13,DE,Chat,Payments & Payouts,75,69,18,65,46
+2026-04-13,DE,Email,Payments & Payouts,43,37,10,39,26
+2026-04-13,DE,Phone,Listing & Selling,104,86,21,92,76
+2026-04-13,DE,Chat,Listing & Selling,80,72,18,70,56
+2026-04-13,DE,Email,Listing & Selling,44,43,11,40,30
+2026-04-13,DE,Phone,Account Access,76,75,19,68,54
+2026-04-13,DE,Chat,Account Access,62,52,13,57,44
+2026-04-13,DE,Email,Account Access,35,23,6,31,23
+2026-04-13,DE,Phone,Buyer & Seller Disputes,59,52,14,53,36
+2026-04-13,DE,Chat,Buyer & Seller Disputes,44,29,8,41,27
+2026-04-13,DE,Email,Buyer & Seller Disputes,25,17,5,23,14
+2026-04-20,US,Phone,Returns & Refunds,742,548,137,688,530
+2026-04-20,US,Chat,Returns & Refunds,592,540,136,520,383
+2026-04-20,US,Email,Returns & Refunds,326,276,73,303,207
+2026-04-20,US,Phone,Shipping & Delivery,638,593,146,599,466
+2026-04-20,US,Chat,Shipping & Delivery,487,409,103,429,335
+2026-04-20,US,Email,Shipping & Delivery,261,203,53,228,160
+2026-04-20,US,Phone,Payments & Payouts,457,389,98,419,318
+2026-04-20,US,Chat,Payments & Payouts,353,287,73,316,241
+2026-04-20,US,Email,Payments & Payouts,204,180,47,176,123
+2026-04-20,US,Phone,Listing & Selling,446,472,113,393,336
+2026-04-20,US,Chat,Listing & Selling,315,309,75,295,243
+2026-04-20,US,Email,Listing & Selling,188,154,38,163,124
+2026-04-20,US,Phone,Account Access,322,304,74,301,243
+2026-04-20,US,Chat,Account Access,235,199,49,208,170
+2026-04-20,US,Email,Account Access,136,127,32,122,89
+2026-04-20,US,Phone,Buyer & Seller Disputes,229,204,53,202,143
+2026-04-20,US,Chat,Buyer & Seller Disputes,183,163,44,162,117
+2026-04-20,US,Email,Buyer & Seller Disputes,100,70,19,89,58
+2026-04-20,UK,Phone,Returns & Refunds,264,250,63,229,176
+2026-04-20,UK,Chat,Returns & Refunds,208,163,42,186,132
+2026-04-20,UK,Email,Returns & Refunds,119,106,28,104,71
+2026-04-20,UK,Phone,Shipping & Delivery,202,170,43,186,140
+2026-04-20,UK,Chat,Shipping & Delivery,161,133,34,141,103
+2026-04-20,UK,Email,Shipping & Delivery,91,88,23,79,56
+2026-04-20,UK,Phone,Payments & Payouts,154,113,28,134,99
+2026-04-20,UK,Chat,Payments & Payouts,125,104,26,110,83
+2026-04-20,UK,Email,Payments & Payouts,73,72,19,64,44
+2026-04-20,UK,Phone,Listing & Selling,154,168,40,134,113
+2026-04-20,UK,Chat,Listing & Selling,118,104,25,103,82
+2026-04-20,UK,Email,Listing & Selling,66,60,15,57,43
+2026-04-20,UK,Phone,Account Access,125,118,29,109,86
+2026-04-20,UK,Chat,Account Access,96,78,19,86,69
+2026-04-20,UK,Email,Account Access,52,43,11,47,34
+2026-04-20,UK,Phone,Buyer & Seller Disputes,79,57,15,72,50
+2026-04-20,UK,Chat,Buyer & Seller Disputes,66,52,14,60,41
+2026-04-20,UK,Email,Buyer & Seller Disputes,37,33,9,32,20
+2026-04-20,DE,Phone,Returns & Refunds,152,145,37,135,99
+2026-04-20,DE,Chat,Returns & Refunds,115,92,24,104,74
+2026-04-20,DE,Email,Returns & Refunds,65,48,13,56,37
+2026-04-20,DE,Phone,Shipping & Delivery,126,89,23,111,85
+2026-04-20,DE,Chat,Shipping & Delivery,101,85,22,89,65
+2026-04-20,DE,Email,Shipping & Delivery,59,49,13,52,36
+2026-04-20,DE,Phone,Payments & Payouts,94,94,24,85,62
+2026-04-20,DE,Chat,Payments & Payouts,68,58,15,62,46
+2026-04-20,DE,Email,Payments & Payouts,41,33,9,37,25
+2026-04-20,DE,Phone,Listing & Selling,89,69,17,82,68
+2026-04-20,DE,Chat,Listing & Selling,64,52,13,57,45
+2026-04-20,DE,Email,Listing & Selling,39,39,10,34,25
+2026-04-20,DE,Phone,Account Access,73,56,14,68,55
+2026-04-20,DE,Chat,Account Access,57,56,14,51,40
+2026-04-20,DE,Email,Account Access,32,27,7,28,20
+2026-04-20,DE,Phone,Buyer & Seller Disputes,55,41,11,47,32
+2026-04-20,DE,Chat,Buyer & Seller Disputes,43,30,8,40,27
+2026-04-20,DE,Email,Buyer & Seller Disputes,25,18,5,23,14
+2026-04-27,US,Phone,Returns & Refunds,764,567,142,717,555
+2026-04-27,US,Chat,Returns & Refunds,553,479,121,513,381
+2026-04-27,US,Email,Returns & Refunds,321,226,58,298,205
+2026-04-27,US,Phone,Shipping & Delivery,583,542,133,527,411
+2026-04-27,US,Chat,Shipping & Delivery,449,370,93,420,323
+2026-04-27,US,Email,Shipping & Delivery,276,195,50,247,172
+2026-04-27,US,Phone,Payments & Payouts,462,411,102,426,324
+2026-04-27,US,Chat,Payments & Payouts,348,322,80,300,230
+2026-04-27,US,Email,Payments & Payouts,196,153,39,170,121
+2026-04-27,US,Phone,Listing & Selling,428,349,84,402,343
+2026-04-27,US,Chat,Listing & Selling,335,298,71,313,260
+2026-04-27,US,Email,Listing & Selling,190,171,43,168,128
+2026-04-27,US,Phone,Account Access,335,284,69,308,254
+2026-04-27,US,Chat,Account Access,242,190,46,213,169
+2026-04-27,US,Email,Account Access,148,135,34,133,99
+2026-04-27,US,Phone,Buyer & Seller Disputes,242,231,61,223,159
+2026-04-27,US,Chat,Buyer & Seller Disputes,198,187,50,182,125
+2026-04-27,US,Email,Buyer & Seller Disputes,108,102,28,97,63
+2026-04-27,UK,Phone,Returns & Refunds,258,189,47,233,173
+2026-04-27,UK,Chat,Returns & Refunds,202,196,50,178,129
+2026-04-27,UK,Email,Returns & Refunds,111,83,22,103,67
+2026-04-27,UK,Phone,Shipping & Delivery,203,153,38,175,135
+2026-04-27,UK,Chat,Shipping & Delivery,158,148,37,138,105
+2026-04-27,UK,Email,Shipping & Delivery,85,61,16,76,52
+2026-04-27,UK,Phone,Payments & Payouts,154,150,38,143,106
+2026-04-27,UK,Chat,Payments & Payouts,125,104,26,108,81
+2026-04-27,UK,Email,Payments & Payouts,73,73,19,68,45
+2026-04-27,UK,Phone,Listing & Selling,143,123,30,130,108
+2026-04-27,UK,Chat,Listing & Selling,115,94,23,103,83
+2026-04-27,UK,Email,Listing & Selling,62,44,11,55,41
+2026-04-27,UK,Phone,Account Access,111,104,25,104,86
+2026-04-27,UK,Chat,Account Access,92,90,22,84,66
+2026-04-27,UK,Email,Account Access,53,43,11,48,35
+2026-04-27,UK,Phone,Buyer & Seller Disputes,83,78,21,72,51
+2026-04-27,UK,Chat,Buyer & Seller Disputes,65,46,12,59,40
+2026-04-27,UK,Email,Buyer & Seller Disputes,37,33,9,33,21
+2026-04-27,DE,Phone,Returns & Refunds,154,120,31,143,103
+2026-04-27,DE,Chat,Returns & Refunds,123,122,32,106,76
+2026-04-27,DE,Email,Returns & Refunds,67,55,15,58,39
+2026-04-27,DE,Phone,Shipping & Delivery,129,121,31,115,87
+2026-04-27,DE,Chat,Shipping & Delivery,102,81,21,91,66
+2026-04-27,DE,Email,Shipping & Delivery,55,52,14,48,33
+2026-04-27,DE,Phone,Payments & Payouts,93,95,24,87,66
+2026-04-27,DE,Chat,Payments & Payouts,77,75,19,70,50
+2026-04-27,DE,Email,Payments & Payouts,42,37,10,38,25
+2026-04-27,DE,Phone,Listing & Selling,86,73,18,77,62
+2026-04-27,DE,Chat,Listing & Selling,67,60,15,61,47
+2026-04-27,DE,Email,Listing & Selling,37,31,8,34,25
+2026-04-27,DE,Phone,Account Access,75,64,16,67,53
+2026-04-27,DE,Chat,Account Access,56,48,12,50,39
+2026-04-27,DE,Email,Account Access,34,23,6,31,22
+2026-04-27,DE,Phone,Buyer & Seller Disputes,54,41,11,51,36
+2026-04-27,DE,Chat,Buyer & Seller Disputes,40,33,9,38,26
+2026-04-27,DE,Email,Buyer & Seller Disputes,23,21,6,20,13
+2026-05-04,US,Phone,Returns & Refunds,649,663,163,600,469
+2026-05-04,US,Chat,Returns & Refunds,512,425,106,466,339
+2026-05-04,US,Email,Returns & Refunds,298,212,55,259,182
+2026-05-04,US,Phone,Shipping & Delivery,617,640,157,549,426
+2026-05-04,US,Chat,Shipping & Delivery,470,461,116,442,339
+2026-05-04,US,Email,Shipping & Delivery,277,244,63,259,183
+2026-05-04,US,Phone,Payments & Payouts,462,429,106,403,315
+2026-05-04,US,Chat,Payments & Payouts,359,306,77,324,249
+2026-05-04,US,Email,Payments & Payouts,191,160,41,169,115
+2026-05-04,US,Phone,Listing & Selling,417,443,106,376,318
+2026-05-04,US,Chat,Listing & Selling,326,333,81,283,231
+2026-05-04,US,Email,Listing & Selling,180,162,40,158,120
+2026-05-04,US,Phone,Account Access,330,309,75,302,252
+2026-05-04,US,Chat,Account Access,257,234,57,239,195
+2026-05-04,US,Email,Account Access,144,147,37,127,93
+2026-05-04,US,Phone,Buyer & Seller Disputes,258,196,51,222,157
+2026-05-04,US,Chat,Buyer & Seller Disputes,190,176,47,164,115
+2026-05-04,US,Email,Buyer & Seller Disputes,108,92,25,100,67
+2026-05-04,UK,Phone,Returns & Refunds,255,252,63,238,178
+2026-05-04,UK,Chat,Returns & Refunds,203,195,49,188,134
+2026-05-04,UK,Email,Returns & Refunds,113,95,25,98,65
+2026-05-04,UK,Phone,Shipping & Delivery,227,239,59,203,157
+2026-05-04,UK,Chat,Shipping & Delivery,168,142,36,147,110
+2026-05-04,UK,Email,Shipping & Delivery,99,97,25,86,61
+2026-05-04,UK,Phone,Payments & Payouts,167,144,36,150,112
+2026-05-04,UK,Chat,Payments & Payouts,125,107,27,114,86
+2026-05-04,UK,Email,Payments & Payouts,73,58,15,64,43
+2026-05-04,UK,Phone,Listing & Selling,143,134,32,128,108
+2026-05-04,UK,Chat,Listing & Selling,118,121,29,105,87
+2026-05-04,UK,Email,Listing & Selling,65,67,17,59,45
+2026-05-04,UK,Phone,Account Access,125,130,32,108,89
+2026-05-04,UK,Chat,Account Access,93,72,18,83,67
+2026-05-04,UK,Email,Account Access,53,51,13,49,35
+2026-05-04,UK,Phone,Buyer & Seller Disputes,89,71,19,82,57
+2026-05-04,UK,Chat,Buyer & Seller Disputes,66,60,16,61,42
+2026-05-04,UK,Email,Buyer & Seller Disputes,41,26,7,36,22
+2026-05-04,DE,Phone,Returns & Refunds,168,136,35,151,108
+2026-05-04,DE,Chat,Returns & Refunds,132,107,28,119,86
+2026-05-04,DE,Email,Returns & Refunds,80,71,19,74,49
+2026-05-04,DE,Phone,Shipping & Delivery,141,132,34,127,96
+2026-05-04,DE,Chat,Shipping & Delivery,112,94,24,102,77
+2026-05-04,DE,Email,Shipping & Delivery,63,57,15,55,37
+2026-05-04,DE,Phone,Payments & Payouts,102,78,20,91,66
+2026-05-04,DE,Chat,Payments & Payouts,85,71,18,76,56
+2026-05-04,DE,Email,Payments & Payouts,45,38,10,39,26
+2026-05-04,DE,Phone,Listing & Selling,106,87,21,98,78
+2026-05-04,DE,Chat,Listing & Selling,76,73,18,68,55
+2026-05-04,DE,Email,Listing & Selling,45,32,8,41,31
+2026-05-04,DE,Phone,Account Access,72,68,17,66,52
+2026-05-04,DE,Chat,Account Access,58,52,13,51,39
+2026-05-04,DE,Email,Account Access,33,27,7,30,21
+2026-05-04,DE,Phone,Buyer & Seller Disputes,61,40,11,56,38
+2026-05-04,DE,Chat,Buyer & Seller Disputes,46,29,8,42,28
+2026-05-04,DE,Email,Buyer & Seller Disputes,27,21,6,24,15
+2026-05-11,US,Phone,Returns & Refunds,767,731,179,692,528
+2026-05-11,US,Chat,Returns & Refunds,575,485,123,499,374
+2026-05-11,US,Email,Returns & Refunds,333,271,71,304,213
+2026-05-11,US,Phone,Shipping & Delivery,629,471,115,548,429
+2026-05-11,US,Chat,Shipping & Delivery,494,389,96,435,326
+2026-05-11,US,Email,Shipping & Delivery,283,238,61,261,187
+2026-05-11,US,Phone,Payments & Payouts,486,486,119,455,362
+2026-05-11,US,Chat,Payments & Payouts,360,340,85,333,258
+2026-05-11,US,Email,Payments & Payouts,215,196,51,195,139
+2026-05-11,US,Phone,Listing & Selling,421,446,105,383,320
+2026-05-11,US,Chat,Listing & Selling,337,272,65,310,253
+2026-05-11,US,Email,Listing & Selling,192,192,47,178,135
+2026-05-11,US,Phone,Account Access,337,308,74,297,243
+2026-05-11,US,Chat,Account Access,273,282,69,255,203
+2026-05-11,US,Email,Account Access,153,154,39,136,99
+2026-05-11,US,Phone,Buyer & Seller Disputes,239,182,48,210,156
+2026-05-11,US,Chat,Buyer & Seller Disputes,196,150,39,172,118
+2026-05-11,US,Email,Buyer & Seller Disputes,110,78,21,99,62
+2026-05-11,UK,Phone,Returns & Refunds,244,177,44,215,161
+2026-05-11,UK,Chat,Returns & Refunds,187,151,38,162,118
+2026-05-11,UK,Email,Returns & Refunds,111,95,25,103,70
+2026-05-11,UK,Phone,Shipping & Delivery,209,201,50,189,146
+2026-05-11,UK,Chat,Shipping & Delivery,170,166,41,148,112
+2026-05-11,UK,Email,Shipping & Delivery,93,85,22,82,58
+2026-05-11,UK,Phone,Payments & Payouts,152,127,32,137,103
+2026-05-11,UK,Chat,Payments & Payouts,122,123,31,109,80
+2026-05-11,UK,Email,Payments & Payouts,65,50,13,60,40
+2026-05-11,UK,Phone,Listing & Selling,139,113,27,120,100
+2026-05-11,UK,Chat,Listing & Selling,113,91,22,104,84
+2026-05-11,UK,Email,Listing & Selling,62,64,16,55,42
+2026-05-11,UK,Phone,Account Access,108,103,25,97,79
+2026-05-11,UK,Chat,Account Access,90,85,21,83,64
+2026-05-11,UK,Email,Account Access,52,44,11,48,35
+2026-05-11,UK,Phone,Buyer & Seller Disputes,93,79,21,83,59
+2026-05-11,UK,Chat,Buyer & Seller Disputes,71,56,15,61,41
+2026-05-11,UK,Email,Buyer & Seller Disputes,40,29,8,37,24
+2026-05-11,DE,Phone,Returns & Refunds,165,162,41,144,104
+2026-05-11,DE,Chat,Returns & Refunds,129,112,29,111,80
+2026-05-11,DE,Email,Returns & Refunds,77,56,15,70,47
+2026-05-11,DE,Phone,Shipping & Delivery,149,107,27,132,100
+2026-05-11,DE,Chat,Shipping & Delivery,112,98,25,103,74
+2026-05-11,DE,Email,Shipping & Delivery,66,61,16,58,39
+2026-05-11,DE,Phone,Payments & Payouts,98,81,21,89,68
+2026-05-11,DE,Chat,Payments & Payouts,81,65,17,71,51
+2026-05-11,DE,Email,Payments & Payouts,42,38,10,37,24
+2026-05-11,DE,Phone,Listing & Selling,103,107,26,93,78
+2026-05-11,DE,Chat,Listing & Selling,82,68,17,72,59
+2026-05-11,DE,Email,Listing & Selling,44,39,10,38,29
+2026-05-11,DE,Phone,Account Access,78,68,17,72,58
+2026-05-11,DE,Chat,Account Access,63,48,12,56,43
+2026-05-11,DE,Email,Account Access,36,35,9,32,24
+2026-05-11,DE,Phone,Buyer & Seller Disputes,54,45,12,47,34
+2026-05-11,DE,Chat,Buyer & Seller Disputes,43,33,9,39,27
+2026-05-11,DE,Email,Buyer & Seller Disputes,26,21,6,24,15
+2026-05-18,US,Phone,Returns & Refunds,698,566,139,649,504
+2026-05-18,US,Chat,Returns & Refunds,530,401,100,478,361
+2026-05-18,US,Email,Returns & Refunds,304,256,66,277,189
+2026-05-18,US,Phone,Shipping & Delivery,598,631,153,526,411
+2026-05-18,US,Chat,Shipping & Delivery,459,444,110,406,314
+2026-05-18,US,Email,Shipping & Delivery,279,244,62,260,188
+2026-05-18,US,Phone,Payments & Payouts,436,464,113,389,301
+2026-05-18,US,Chat,Payments & Payouts,337,305,75,305,234
+2026-05-18,US,Email,Payments & Payouts,194,139,36,170,118
+2026-05-18,US,Phone,Listing & Selling,421,370,88,377,315
+2026-05-18,US,Chat,Listing & Selling,309,268,65,274,228
+2026-05-18,US,Email,Listing & Selling,180,172,42,166,126
+2026-05-18,US,Phone,Account Access,353,324,79,322,262
+2026-05-18,US,Chat,Account Access,261,226,54,232,183
+2026-05-18,US,Email,Account Access,160,142,36,146,108
+2026-05-18,US,Phone,Buyer & Seller Disputes,247,233,60,213,158
+2026-05-18,US,Chat,Buyer & Seller Disputes,185,180,47,165,117
+2026-05-18,US,Email,Buyer & Seller Disputes,109,98,27,94,60
+2026-05-18,UK,Phone,Returns & Refunds,257,247,62,224,167
+2026-05-18,UK,Chat,Returns & Refunds,193,170,43,170,121
+2026-05-18,UK,Email,Returns & Refunds,109,88,23,95,66
+2026-05-18,UK,Phone,Shipping & Delivery,217,225,56,194,150
+2026-05-18,UK,Chat,Shipping & Delivery,171,178,44,153,115
+2026-05-18,UK,Email,Shipping & Delivery,96,82,21,86,59
+2026-05-18,UK,Phone,Payments & Payouts,160,120,30,148,116
+2026-05-18,UK,Chat,Payments & Payouts,130,133,33,121,91
+2026-05-18,UK,Email,Payments & Payouts,76,69,18,67,44
+2026-05-18,UK,Phone,Listing & Selling,155,160,38,134,110
+2026-05-18,UK,Chat,Listing & Selling,123,116,28,110,89
+2026-05-18,UK,Email,Listing & Selling,74,60,15,66,50
+2026-05-18,UK,Phone,Account Access,124,95,23,116,93
+2026-05-18,UK,Chat,Account Access,97,81,20,85,67
+2026-05-18,UK,Email,Account Access,55,43,11,50,37
+2026-05-18,UK,Phone,Buyer & Seller Disputes,89,71,19,80,56
+2026-05-18,UK,Chat,Buyer & Seller Disputes,68,50,13,60,41
+2026-05-18,UK,Email,Buyer & Seller Disputes,42,32,9,37,23
+2026-05-18,DE,Phone,Returns & Refunds,160,126,32,149,111
+2026-05-18,DE,Chat,Returns & Refunds,119,105,27,108,77
+2026-05-18,DE,Email,Returns & Refunds,68,63,17,61,41
+2026-05-18,DE,Phone,Shipping & Delivery,132,115,29,121,91
+2026-05-18,DE,Chat,Shipping & Delivery,107,74,19,94,68
+2026-05-18,DE,Email,Shipping & Delivery,60,56,15,55,38
+2026-05-18,DE,Phone,Payments & Payouts,102,81,21,96,70
+2026-05-18,DE,Chat,Payments & Payouts,76,63,16,71,52
+2026-05-18,DE,Email,Payments & Payouts,45,41,11,39,26
+2026-05-18,DE,Phone,Listing & Selling,95,93,23,86,70
+2026-05-18,DE,Chat,Listing & Selling,72,73,18,66,53
+2026-05-18,DE,Email,Listing & Selling,43,36,9,39,29
+2026-05-18,DE,Phone,Account Access,71,74,18,64,51
+2026-05-18,DE,Chat,Account Access,56,52,13,52,40
+2026-05-18,DE,Email,Account Access,34,27,7,32,23
+2026-05-18,DE,Phone,Buyer & Seller Disputes,56,41,11,48,33
+2026-05-18,DE,Chat,Buyer & Seller Disputes,46,37,10,43,30
+2026-05-18,DE,Email,Buyer & Seller Disputes,25,21,6,22,14
+2026-05-25,US,Phone,Returns & Refunds,710,735,184,623,487
+2026-05-25,US,Chat,Returns & Refunds,552,578,143,475,360
+2026-05-25,US,Email,Returns & Refunds,320,237,61,292,196
+2026-05-25,US,Phone,Shipping & Delivery,643,588,143,586,455
+2026-05-25,US,Chat,Shipping & Delivery,498,413,101,448,341
+2026-05-25,US,Email,Shipping & Delivery,286,287,73,248,177
+2026-05-25,US,Phone,Payments & Payouts,443,421,104,402,316
+2026-05-25,US,Chat,Payments & Payouts,364,284,71,325,245
+2026-05-25,US,Email,Payments & Payouts,196,141,36,183,130
+2026-05-25,US,Phone,Listing & Selling,421,343,81,362,303
+2026-05-25,US,Chat,Listing & Selling,332,287,68,302,246
+2026-05-25,US,Email,Listing & Selling,190,160,39,170,132
+2026-05-25,US,Phone,Account Access,311,329,80,272,224
+2026-05-25,US,Chat,Account Access,246,200,48,224,178
+2026-05-25,US,Email,Account Access,141,115,29,132,97
+2026-05-25,US,Phone,Buyer & Seller Disputes,246,180,47,224,161
+2026-05-25,US,Chat,Buyer & Seller Disputes,192,164,43,173,124
+2026-05-25,US,Email,Buyer & Seller Disputes,114,78,21,103,65
+2026-05-25,UK,Phone,Returns & Refunds,237,218,54,215,161
+2026-05-25,UK,Chat,Returns & Refunds,200,167,42,185,139
+2026-05-25,UK,Email,Returns & Refunds,111,85,22,104,71
+2026-05-25,UK,Phone,Shipping & Delivery,229,198,49,198,156
+2026-05-25,UK,Chat,Shipping & Delivery,171,160,40,157,118
+2026-05-25,UK,Email,Shipping & Delivery,105,90,23,93,64
+2026-05-25,UK,Phone,Payments & Payouts,165,132,33,154,115
+2026-05-25,UK,Chat,Payments & Payouts,125,108,27,117,88
+2026-05-25,UK,Email,Payments & Payouts,78,57,15,73,50
+2026-05-25,UK,Phone,Listing & Selling,154,142,34,143,119
+2026-05-25,UK,Chat,Listing & Selling,119,114,27,108,88
+2026-05-25,UK,Email,Listing & Selling,68,53,13,63,47
+2026-05-25,UK,Phone,Account Access,131,121,29,116,95
+2026-05-25,UK,Chat,Account Access,99,98,24,88,71
+2026-05-25,UK,Email,Account Access,56,43,11,49,37
+2026-05-25,UK,Phone,Buyer & Seller Disputes,94,83,22,84,60
+2026-05-25,UK,Chat,Buyer & Seller Disputes,68,61,16,61,43
+2026-05-25,UK,Email,Buyer & Seller Disputes,40,36,10,37,23
+2026-05-25,DE,Phone,Returns & Refunds,171,140,36,150,110
+2026-05-25,DE,Chat,Returns & Refunds,138,126,32,129,90
+2026-05-25,DE,Email,Returns & Refunds,73,60,16,64,41
+2026-05-25,DE,Phone,Shipping & Delivery,146,145,37,133,103
+2026-05-25,DE,Chat,Shipping & Delivery,113,101,26,100,72
+2026-05-25,DE,Email,Shipping & Delivery,66,45,12,59,40
+2026-05-25,DE,Phone,Payments & Payouts,99,95,24,91,68
+2026-05-25,DE,Chat,Payments & Payouts,81,62,16,70,52
+2026-05-25,DE,Email,Payments & Payouts,49,35,9,44,29
+2026-05-25,DE,Phone,Listing & Selling,96,93,23,87,72
+2026-05-25,DE,Chat,Listing & Selling,70,56,14,64,51
+2026-05-25,DE,Email,Listing & Selling,43,31,8,38,29
+2026-05-25,DE,Phone,Account Access,81,61,15,76,61
+2026-05-25,DE,Chat,Account Access,59,48,12,52,40
+2026-05-25,DE,Email,Account Access,37,35,9,33,23
+2026-05-25,DE,Phone,Buyer & Seller Disputes,65,57,15,58,42
+2026-05-25,DE,Chat,Buyer & Seller Disputes,47,45,12,41,28
+2026-05-25,DE,Email,Buyer & Seller Disputes,27,18,5,25,16
+2026-06-01,US,Phone,Returns & Refunds,699,668,166,603,462
+2026-06-01,US,Chat,Returns & Refunds,547,569,141,511,387
+2026-06-01,US,Email,Returns & Refunds,311,310,80,280,193
+2026-06-01,US,Phone,Shipping & Delivery,575,585,144,534,415
+2026-06-01,US,Chat,Shipping & Delivery,448,410,101,419,330
+2026-06-01,US,Email,Shipping & Delivery,235,220,56,218,155
+2026-06-01,US,Phone,Payments & Payouts,414,329,82,357,282
+2026-06-01,US,Chat,Payments & Payouts,333,336,83,296,228
+2026-06-01,US,Email,Payments & Payouts,182,139,36,163,113
+2026-06-01,US,Phone,Listing & Selling,387,337,80,360,311
+2026-06-01,US,Chat,Listing & Selling,314,253,61,293,238
+2026-06-01,US,Email,Listing & Selling,187,174,43,166,129
+2026-06-01,US,Phone,Account Access,329,354,84,292,240
+2026-06-01,US,Chat,Account Access,271,221,54,240,190
+2026-06-01,US,Email,Account Access,148,124,31,135,104
+2026-06-01,US,Phone,Buyer & Seller Disputes,253,218,56,237,173
+2026-06-01,US,Chat,Buyer & Seller Disputes,195,165,43,177,123
+2026-06-01,US,Email,Buyer & Seller Disputes,113,90,24,102,66
+2026-06-01,UK,Phone,Returns & Refunds,261,204,51,225,167
+2026-06-01,UK,Chat,Returns & Refunds,209,189,47,187,139
+2026-06-01,UK,Email,Returns & Refunds,114,104,27,100,67
+2026-06-01,UK,Phone,Shipping & Delivery,235,220,55,220,168
+2026-06-01,UK,Chat,Shipping & Delivery,183,167,42,166,124
+2026-06-01,UK,Email,Shipping & Delivery,99,92,24,92,63
+2026-06-01,UK,Phone,Payments & Payouts,158,142,35,139,108
+2026-06-01,UK,Chat,Payments & Payouts,124,111,28,114,85
+2026-06-01,UK,Email,Payments & Payouts,73,55,14,65,44
+2026-06-01,UK,Phone,Listing & Selling,155,144,34,138,114
+2026-06-01,UK,Chat,Listing & Selling,126,116,28,109,89
+2026-06-01,UK,Email,Listing & Selling,69,48,12,60,46
+2026-06-01,UK,Phone,Account Access,124,119,29,109,90
+2026-06-01,UK,Chat,Account Access,96,99,24,86,67
+2026-06-01,UK,Email,Account Access,53,52,13,47,34
+2026-06-01,UK,Phone,Buyer & Seller Disputes,96,95,25,83,58
+2026-06-01,UK,Chat,Buyer & Seller Disputes,70,64,17,64,44
+2026-06-01,UK,Email,Buyer & Seller Disputes,41,33,9,36,23
+2026-06-01,DE,Phone,Returns & Refunds,161,152,39,151,109
+2026-06-01,DE,Chat,Returns & Refunds,123,120,31,106,77
+2026-06-01,DE,Email,Returns & Refunds,70,67,18,65,43
+2026-06-01,DE,Phone,Shipping & Delivery,120,102,26,103,80
+2026-06-01,DE,Chat,Shipping & Delivery,100,79,20,94,70
+2026-06-01,DE,Email,Shipping & Delivery,55,46,12,48,32
+2026-06-01,DE,Phone,Payments & Payouts,89,78,20,79,60
+2026-06-01,DE,Chat,Payments & Payouts,74,64,16,67,50
+2026-06-01,DE,Email,Payments & Payouts,43,34,9,37,25
+2026-06-01,DE,Phone,Listing & Selling,83,62,15,77,63
+2026-06-01,DE,Chat,Listing & Selling,68,58,14,63,52
+2026-06-01,DE,Email,Listing & Selling,37,35,9,35,26
+2026-06-01,DE,Phone,Account Access,68,53,13,61,49
+2026-06-01,DE,Chat,Account Access,55,52,13,50,39
+2026-06-01,DE,Email,Account Access,30,19,5,28,20
+2026-06-01,DE,Phone,Buyer & Seller Disputes,55,45,12,48,34
+2026-06-01,DE,Chat,Buyer & Seller Disputes,45,41,11,42,28
+2026-06-01,DE,Email,Buyer & Seller Disputes,26,18,5,23,14
+2026-06-08,US,Phone,Returns & Refunds,643,596,148,594,447
+2026-06-08,US,Chat,Returns & Refunds,523,492,121,480,365
+2026-06-08,US,Email,Returns & Refunds,295,215,55,271,187
+2026-06-08,US,Phone,Shipping & Delivery,585,590,143,521,415
+2026-06-08,US,Chat,Shipping & Delivery,437,332,81,383,293
+2026-06-08,US,Email,Shipping & Delivery,261,242,62,225,161
+2026-06-08,US,Phone,Payments & Payouts,418,380,92,387,298
+2026-06-08,US,Chat,Payments & Payouts,336,272,68,314,240
+2026-06-08,US,Email,Payments & Payouts,178,138,35,157,113
+2026-06-08,US,Phone,Listing & Selling,374,290,68,343,292
+2026-06-08,US,Chat,Listing & Selling,296,243,57,266,221
+2026-06-08,US,Email,Listing & Selling,176,157,38,156,123
+2026-06-08,US,Phone,Account Access,336,302,72,306,254
+2026-06-08,US,Chat,Account Access,250,229,55,228,186
+2026-06-08,US,Email,Account Access,138,101,25,129,98
+2026-06-08,US,Phone,Buyer & Seller Disputes,230,219,57,206,149
+2026-06-08,US,Chat,Buyer & Seller Disputes,187,186,48,163,116
+2026-06-08,US,Email,Buyer & Seller Disputes,100,82,22,92,60
+2026-06-08,UK,Phone,Returns & Refunds,258,192,48,225,172
+2026-06-08,UK,Chat,Returns & Refunds,203,157,39,179,131
+2026-06-08,UK,Email,Returns & Refunds,118,96,25,109,74
+2026-06-08,UK,Phone,Shipping & Delivery,207,207,51,190,147
+2026-06-08,UK,Chat,Shipping & Delivery,156,117,29,145,112
+2026-06-08,UK,Email,Shipping & Delivery,86,73,19,78,54
+2026-06-08,UK,Phone,Payments & Payouts,168,124,31,154,117
+2026-06-08,UK,Chat,Payments & Payouts,131,105,26,113,83
+2026-06-08,UK,Email,Payments & Payouts,72,57,15,65,43
+2026-06-08,UK,Phone,Listing & Selling,160,156,37,145,122
+2026-06-08,UK,Chat,Listing & Selling,118,109,26,103,84
+2026-06-08,UK,Email,Listing & Selling,70,60,15,65,49
+2026-06-08,UK,Phone,Account Access,108,100,24,98,81
+2026-06-08,UK,Chat,Account Access,89,94,23,80,63
+2026-06-08,UK,Email,Account Access,49,40,10,43,33
+2026-06-08,UK,Phone,Buyer & Seller Disputes,94,84,22,82,59
+2026-06-08,UK,Chat,Buyer & Seller Disputes,71,69,18,62,43
+2026-06-08,UK,Email,Buyer & Seller Disputes,42,33,9,39,25
+2026-06-08,DE,Phone,Returns & Refunds,151,139,35,138,103
+2026-06-08,DE,Chat,Returns & Refunds,118,99,25,109,79
+2026-06-08,DE,Email,Returns & Refunds,64,46,12,59,38
+2026-06-08,DE,Phone,Shipping & Delivery,129,99,25,119,88
+2026-06-08,DE,Chat,Shipping & Delivery,103,87,22,89,68
+2026-06-08,DE,Email,Shipping & Delivery,56,53,14,51,35
+2026-06-08,DE,Phone,Payments & Payouts,108,87,22,95,71
+2026-06-08,DE,Chat,Payments & Payouts,85,64,16,74,53
+2026-06-08,DE,Email,Payments & Payouts,47,34,9,41,27
+2026-06-08,DE,Phone,Listing & Selling,94,74,18,81,66
+2026-06-08,DE,Chat,Listing & Selling,67,62,15,60,48
+2026-06-08,DE,Email,Listing & Selling,42,40,10,39,28
+2026-06-08,DE,Phone,Account Access,74,66,16,67,52
+2026-06-08,DE,Chat,Account Access,57,61,15,53,40
+2026-06-08,DE,Email,Account Access,34,28,7,30,22
+2026-06-08,DE,Phone,Buyer & Seller Disputes,55,49,13,48,34
+2026-06-08,DE,Chat,Buyer & Seller Disputes,46,33,9,43,30
+2026-06-08,DE,Email,Buyer & Seller Disputes,26,22,6,24,15
+2026-06-15,US,Phone,Returns & Refunds,789,700,174,703,547
+2026-06-15,US,Chat,Returns & Refunds,567,471,118,503,375
+2026-06-15,US,Email,Returns & Refunds,325,263,67,298,211
+2026-06-15,US,Phone,Shipping & Delivery,631,582,142,591,460
+2026-06-15,US,Chat,Shipping & Delivery,477,469,115,417,320
+2026-06-15,US,Email,Shipping & Delivery,295,276,70,274,193
+2026-06-15,US,Phone,Payments & Payouts,459,439,106,416,330
+2026-06-15,US,Chat,Payments & Payouts,347,351,87,316,241
+2026-06-15,US,Email,Payments & Payouts,207,166,42,194,139
+2026-06-15,US,Phone,Listing & Selling,408,329,78,382,331
+2026-06-15,US,Chat,Listing & Selling,313,241,57,278,234
+2026-06-15,US,Email,Listing & Selling,166,140,34,150,116
+2026-06-15,US,Phone,Account Access,332,279,67,308,254
+2026-06-15,US,Chat,Account Access,263,257,61,241,192
+2026-06-15,US,Email,Account Access,151,113,28,131,99
+2026-06-15,US,Phone,Buyer & Seller Disputes,243,171,44,214,153
+2026-06-15,US,Chat,Buyer & Seller Disputes,194,156,41,169,123
+2026-06-15,US,Email,Buyer & Seller Disputes,107,74,20,93,61
+2026-06-15,UK,Phone,Returns & Refunds,260,253,62,239,177
+2026-06-15,UK,Chat,Returns & Refunds,192,139,35,178,134
+2026-06-15,UK,Email,Returns & Refunds,109,104,27,100,66
+2026-06-15,UK,Phone,Shipping & Delivery,219,180,44,204,159
+2026-06-15,UK,Chat,Shipping & Delivery,160,167,41,141,107
+2026-06-15,UK,Email,Shipping & Delivery,95,70,18,86,59
+2026-06-15,UK,Phone,Payments & Payouts,177,156,38,163,126
+2026-06-15,UK,Chat,Payments & Payouts,131,118,29,122,91
+2026-06-15,UK,Email,Payments & Payouts,79,62,16,74,50
+2026-06-15,UK,Phone,Listing & Selling,165,131,31,143,118
+2026-06-15,UK,Chat,Listing & Selling,120,129,31,112,91
+2026-06-15,UK,Email,Listing & Selling,73,73,18,63,47
+2026-06-15,UK,Phone,Account Access,113,105,25,106,85
+2026-06-15,UK,Chat,Account Access,90,77,19,84,67
+2026-06-15,UK,Email,Account Access,50,47,12,45,33
+2026-06-15,UK,Phone,Buyer & Seller Disputes,95,77,20,84,59
+2026-06-15,UK,Chat,Buyer & Seller Disputes,76,68,18,71,50
+2026-06-15,UK,Email,Buyer & Seller Disputes,40,33,9,36,23
+2026-06-15,DE,Phone,Returns & Refunds,168,144,36,150,111
+2026-06-15,DE,Chat,Returns & Refunds,133,134,34,122,88
+2026-06-15,DE,Email,Returns & Refunds,78,72,19,72,49
+2026-06-15,DE,Phone,Shipping & Delivery,136,100,25,127,97
+2026-06-15,DE,Chat,Shipping & Delivery,107,88,22,96,71
+2026-06-15,DE,Email,Shipping & Delivery,57,54,14,53,35
+2026-06-15,DE,Phone,Payments & Payouts,100,94,24,88,66
+2026-06-15,DE,Chat,Payments & Payouts,73,51,13,64,48
+2026-06-15,DE,Email,Payments & Payouts,45,42,11,42,28
+2026-06-15,DE,Phone,Listing & Selling,91,75,18,85,70
+2026-06-15,DE,Chat,Listing & Selling,73,70,17,64,51
+2026-06-15,DE,Email,Listing & Selling,42,36,9,39,29
+2026-06-15,DE,Phone,Account Access,81,61,15,72,56
+2026-06-15,DE,Chat,Account Access,58,45,11,54,42
+2026-06-15,DE,Email,Account Access,36,35,9,33,24
+2026-06-15,DE,Phone,Buyer & Seller Disputes,54,41,11,49,34
+2026-06-15,DE,Chat,Buyer & Seller Disputes,43,30,8,38,26
+2026-06-15,DE,Email,Buyer & Seller Disputes,25,18,5,22,14
+2026-06-22,US,Phone,Returns & Refunds,851,861,212,766,606
+2026-06-22,US,Chat,Returns & Refunds,647,666,164,595,437
+2026-06-22,US,Email,Returns & Refunds,351,274,69,303,214
+2026-06-22,US,Phone,Shipping & Delivery,608,515,127,531,420
+2026-06-22,US,Chat,Shipping & Delivery,463,463,112,417,326
+2026-06-22,US,Email,Shipping & Delivery,267,250,64,233,171
+2026-06-22,US,Phone,Payments & Payouts,459,473,116,430,329
+2026-06-22,US,Chat,Payments & Payouts,360,335,82,323,251
+2026-06-22,US,Email,Payments & Payouts,215,205,52,185,133
+2026-06-22,US,Phone,Listing & Selling,407,436,102,354,306
+2026-06-22,US,Chat,Listing & Selling,294,250,60,272,228
+2026-06-22,US,Email,Listing & Selling,185,143,35,159,126
+2026-06-22,US,Phone,Account Access,367,364,88,317,265
+2026-06-22,US,Chat,Account Access,276,251,60,259,209
+2026-06-22,US,Email,Account Access,157,137,34,138,104
+2026-06-22,US,Phone,Buyer & Seller Disputes,243,188,48,221,166
+2026-06-22,US,Chat,Buyer & Seller Disputes,194,167,43,169,121
+2026-06-22,US,Email,Buyer & Seller Disputes,105,86,23,98,65
+2026-06-22,UK,Phone,Returns & Refunds,262,196,49,229,175
+2026-06-22,UK,Chat,Returns & Refunds,204,175,44,180,136
+2026-06-22,UK,Email,Returns & Refunds,112,81,21,98,65
+2026-06-22,UK,Phone,Shipping & Delivery,228,217,54,208,159
+2026-06-22,UK,Chat,Shipping & Delivery,177,163,41,166,125
+2026-06-22,UK,Email,Shipping & Delivery,97,87,22,89,62
+2026-06-22,UK,Phone,Payments & Payouts,155,138,34,141,110
+2026-06-22,UK,Chat,Payments & Payouts,131,110,27,121,89
+2026-06-22,UK,Email,Payments & Payouts,73,62,16,63,43
+2026-06-22,UK,Phone,Listing & Selling,147,149,35,138,113
+2026-06-22,UK,Chat,Listing & Selling,113,97,23,102,83
+2026-06-22,UK,Email,Listing & Selling,65,53,13,58,43
+2026-06-22,UK,Phone,Account Access,129,132,32,111,93
+2026-06-22,UK,Chat,Account Access,96,92,22,84,67
+2026-06-22,UK,Email,Account Access,58,56,14,52,38
+2026-06-22,UK,Phone,Buyer & Seller Disputes,83,80,21,73,53
+2026-06-22,UK,Chat,Buyer & Seller Disputes,69,56,15,60,43
+2026-06-22,UK,Email,Buyer & Seller Disputes,40,36,10,35,22
+2026-06-22,DE,Phone,Returns & Refunds,170,133,34,155,113
+2026-06-22,DE,Chat,Returns & Refunds,131,114,29,123,89
+2026-06-22,DE,Email,Returns & Refunds,74,73,19,67,44
+2026-06-22,DE,Phone,Shipping & Delivery,138,114,29,129,99
+2026-06-22,DE,Chat,Shipping & Delivery,103,98,25,92,70
+2026-06-22,DE,Email,Shipping & Delivery,63,54,14,57,40
+2026-06-22,DE,Phone,Payments & Payouts,94,68,17,87,66
+2026-06-22,DE,Chat,Payments & Payouts,75,67,17,68,49
+2026-06-22,DE,Email,Payments & Payouts,41,34,9,36,24
+2026-06-22,DE,Phone,Listing & Selling,100,78,19,89,73
+2026-06-22,DE,Chat,Listing & Selling,75,79,19,69,55
+2026-06-22,DE,Email,Listing & Selling,45,40,10,40,30
+2026-06-22,DE,Phone,Account Access,77,61,15,72,57
+2026-06-22,DE,Chat,Account Access,58,49,12,54,42
+2026-06-22,DE,Email,Account Access,31,24,6,27,19
+2026-06-22,DE,Phone,Buyer & Seller Disputes,59,41,11,53,37
+2026-06-22,DE,Chat,Buyer & Seller Disputes,46,33,9,43,29
+2026-06-22,DE,Email,Buyer & Seller Disputes,26,18,5,24,15
+2026-06-29,US,Phone,Returns & Refunds,709,725,178,637,488
+2026-06-29,US,Chat,Returns & Refunds,550,547,133,493,365
+2026-06-29,US,Email,Returns & Refunds,322,315,81,282,191
+2026-06-29,US,Phone,Shipping & Delivery,586,487,120,514,411
+2026-06-29,US,Chat,Shipping & Delivery,460,450,109,423,328
+2026-06-29,US,Email,Shipping & Delivery,248,232,59,230,168
+2026-06-29,US,Phone,Payments & Payouts,477,436,106,425,337
+2026-06-29,US,Chat,Payments & Payouts,349,269,67,304,228
+2026-06-29,US,Email,Payments & Payouts,201,168,43,186,133
+2026-06-29,US,Phone,Listing & Selling,407,368,86,350,303
+2026-06-29,US,Chat,Listing & Selling,311,328,78,273,231
+2026-06-29,US,Email,Listing & Selling,177,157,38,156,122
+2026-06-29,US,Phone,Account Access,334,295,71,291,238
+2026-06-29,US,Chat,Account Access,262,227,54,244,196
+2026-06-29,US,Email,Account Access,150,119,29,139,104
+2026-06-29,US,Phone,Buyer & Seller Disputes,237,208,53,214,161
+2026-06-29,US,Chat,Buyer & Seller Disputes,193,159,41,171,123
+2026-06-29,US,Email,Buyer & Seller Disputes,108,88,24,101,65
+2026-06-29,UK,Phone,Returns & Refunds,245,247,61,225,172
+2026-06-29,UK,Chat,Returns & Refunds,188,169,42,175,130
+2026-06-29,UK,Email,Returns & Refunds,110,78,20,100,68
+2026-06-29,UK,Phone,Shipping & Delivery,240,236,57,206,157
+2026-06-29,UK,Chat,Shipping & Delivery,187,188,47,166,127
+2026-06-29,UK,Email,Shipping & Delivery,102,73,19,93,66
+2026-06-29,UK,Phone,Payments & Payouts,154,123,30,136,106
+2026-06-29,UK,Chat,Payments & Payouts,118,102,25,109,81
+2026-06-29,UK,Email,Payments & Payouts,72,55,14,65,44
+2026-06-29,UK,Phone,Listing & Selling,158,132,31,140,118
+2026-06-29,UK,Chat,Listing & Selling,122,109,26,114,94
+2026-06-29,UK,Email,Listing & Selling,70,73,18,63,47
+2026-06-29,UK,Phone,Account Access,126,109,26,110,91
+2026-06-29,UK,Chat,Account Access,97,95,23,86,67
+2026-06-29,UK,Email,Account Access,56,51,13,50,37
+2026-06-29,UK,Phone,Buyer & Seller Disputes,91,78,20,83,61
+2026-06-29,UK,Chat,Buyer & Seller Disputes,70,61,16,61,42
+2026-06-29,UK,Email,Buyer & Seller Disputes,44,33,9,40,26
+2026-06-29,DE,Phone,Returns & Refunds,152,113,29,140,107
+2026-06-29,DE,Chat,Returns & Refunds,123,121,31,108,78
+2026-06-29,DE,Email,Returns & Refunds,69,50,13,65,44
+2026-06-29,DE,Phone,Shipping & Delivery,128,112,28,112,85
+2026-06-29,DE,Chat,Shipping & Delivery,98,99,25,88,64
+2026-06-29,DE,Email,Shipping & Delivery,58,42,11,52,36
+2026-06-29,DE,Phone,Payments & Payouts,108,103,26,98,75
+2026-06-29,DE,Chat,Payments & Payouts,83,76,19,77,57
+2026-06-29,DE,Email,Payments & Payouts,47,42,11,41,28
+2026-06-29,DE,Phone,Listing & Selling,96,75,18,86,70
+2026-06-29,DE,Chat,Listing & Selling,74,69,17,65,53
+2026-06-29,DE,Email,Listing & Selling,44,35,9,39,29
+2026-06-29,DE,Phone,Account Access,78,75,18,73,59
+2026-06-29,DE,Chat,Account Access,58,61,15,51,40
+2026-06-29,DE,Email,Account Access,34,31,8,31,23
+2026-06-29,DE,Phone,Buyer & Seller Disputes,57,53,14,51,37
+2026-06-29,DE,Chat,Buyer & Seller Disputes,44,42,11,39,27
+2026-06-29,DE,Email,Buyer & Seller Disputes,26,22,6,23,14
+2026-07-06,US,Phone,Returns & Refunds,896,796,211,841,627
+2026-07-06,US,Chat,Returns & Refunds,653,565,148,606,452
+2026-07-06,US,Email,Returns & Refunds,378,251,68,353,234
+2026-07-06,US,Phone,Shipping & Delivery,530,407,99,477,377
+2026-07-06,US,Chat,Shipping & Delivery,443,349,85,410,317
+2026-07-06,US,Email,Shipping & Delivery,235,236,60,210,148
+2026-07-06,US,Phone,Payments & Payouts,462,454,112,419,325
+2026-07-06,US,Chat,Payments & Payouts,357,274,68,308,241
+2026-07-06,US,Email,Payments & Payouts,198,153,39,173,124
+2026-07-06,US,Phone,Listing & Selling,395,321,76,366,318
+2026-07-06,US,Chat,Listing & Selling,301,265,62,281,232
+2026-07-06,US,Email,Listing & Selling,165,130,32,143,112
+2026-07-06,US,Phone,Account Access,299,312,75,263,223
+2026-07-06,US,Chat,Account Access,254,266,64,224,183
+2026-07-06,US,Email,Account Access,138,118,29,129,97
+2026-07-06,US,Phone,Buyer & Seller Disputes,238,188,48,220,160
+2026-07-06,US,Chat,Buyer & Seller Disputes,178,143,37,162,114
+2026-07-06,US,Email,Buyer & Seller Disputes,101,82,22,89,60
+2026-07-06,UK,Phone,Returns & Refunds,282,284,69,263,198
+2026-07-06,UK,Chat,Returns & Refunds,219,166,41,193,146
+2026-07-06,UK,Email,Returns & Refunds,128,112,29,113,76
+2026-07-06,UK,Phone,Shipping & Delivery,217,181,44,189,145
+2026-07-06,UK,Chat,Shipping & Delivery,167,131,32,150,114
+2026-07-06,UK,Email,Shipping & Delivery,99,103,26,87,63
+2026-07-06,UK,Phone,Payments & Payouts,168,164,40,151,115
+2026-07-06,UK,Chat,Payments & Payouts,135,131,32,124,93
+2026-07-06,UK,Email,Payments & Payouts,73,55,14,68,47
+2026-07-06,UK,Phone,Listing & Selling,147,123,29,127,107
+2026-07-06,UK,Chat,Listing & Selling,110,118,28,99,82
+2026-07-06,UK,Email,Listing & Selling,61,49,12,53,40
+2026-07-06,UK,Phone,Account Access,126,137,33,117,96
+2026-07-06,UK,Chat,Account Access,93,83,20,85,68
+2026-07-06,UK,Email,Account Access,57,44,11,51,37
+2026-07-06,UK,Phone,Buyer & Seller Disputes,94,90,23,86,61
+2026-07-06,UK,Chat,Buyer & Seller Disputes,72,57,15,66,46
+2026-07-06,UK,Email,Buyer & Seller Disputes,43,37,10,39,26
+2026-07-06,DE,Phone,Returns & Refunds,151,146,37,131,99
+2026-07-06,DE,Chat,Returns & Refunds,121,102,26,109,78
+2026-07-06,DE,Email,Returns & Refunds,63,49,13,57,38
+2026-07-06,DE,Phone,Shipping & Delivery,130,100,25,115,88
+2026-07-06,DE,Chat,Shipping & Delivery,107,81,20,96,71
+2026-07-06,DE,Email,Shipping & Delivery,59,53,14,51,35
+2026-07-06,DE,Phone,Payments & Payouts,95,95,24,87,67
+2026-07-06,DE,Chat,Payments & Payouts,76,67,17,66,48
+2026-07-06,DE,Email,Payments & Payouts,41,38,10,38,26
+2026-07-06,DE,Phone,Listing & Selling,97,94,23,90,75
+2026-07-06,DE,Chat,Listing & Selling,77,66,16,70,57
+2026-07-06,DE,Email,Listing & Selling,42,32,8,39,29
+2026-07-06,DE,Phone,Account Access,66,65,16,59,46
+2026-07-06,DE,Chat,Account Access,54,53,13,50,40
+2026-07-06,DE,Email,Account Access,30,24,6,26,19
+2026-07-06,DE,Phone,Buyer & Seller Disputes,55,50,13,48,33
+2026-07-06,DE,Chat,Buyer & Seller Disputes,45,34,9,40,28
+2026-07-06,DE,Email,Buyer & Seller Disputes,25,18,5,23,14
+2026-07-13,US,Phone,Returns & Refunds,872,730,204,785,586
+2026-07-13,US,Chat,Returns & Refunds,700,476,135,611,447
+2026-07-13,US,Email,Returns & Refunds,398,316,93,357,242
+2026-07-13,US,Phone,Shipping & Delivery,596,514,123,532,418
+2026-07-13,US,Chat,Shipping & Delivery,463,362,87,435,335
+2026-07-13,US,Email,Shipping & Delivery,261,218,55,232,171
+2026-07-13,US,Phone,Payments & Payouts,466,360,89,424,342
+2026-07-13,US,Chat,Payments & Payouts,358,319,81,335,262
+2026-07-13,US,Email,Payments & Payouts,214,202,53,200,139
+2026-07-13,US,Phone,Listing & Selling,426,478,110,386,333
+2026-07-13,US,Chat,Listing & Selling,342,370,86,302,247
+2026-07-13,US,Email,Listing & Selling,188,197,48,172,133
+2026-07-13,US,Phone,Account Access,334,273,66,312,267
+2026-07-13,US,Chat,Account Access,265,289,69,242,198
+2026-07-13,US,Email,Account Access,146,139,35,129,97
+2026-07-13,US,Phone,Buyer & Seller Disputes,251,235,61,216,162
+2026-07-13,US,Chat,Buyer & Seller Disputes,188,152,39,166,117
+2026-07-13,US,Email,Buyer & Seller Disputes,117,101,27,105,69
+2026-07-13,UK,Phone,Returns & Refunds,233,235,58,209,156
+2026-07-13,UK,Chat,Returns & Refunds,181,176,43,165,122
+2026-07-13,UK,Email,Returns & Refunds,110,78,20,98,66
+2026-07-13,UK,Phone,Shipping & Delivery,205,199,49,180,138
+2026-07-13,UK,Chat,Shipping & Delivery,153,114,28,140,109
+2026-07-13,UK,Email,Shipping & Delivery,92,67,17,81,57
+2026-07-13,UK,Phone,Payments & Payouts,144,116,28,135,102
+2026-07-13,UK,Chat,Payments & Payouts,118,122,30,105,78
+2026-07-13,UK,Email,Payments & Payouts,66,58,15,60,43
+2026-07-13,UK,Phone,Listing & Selling,145,115,27,127,109
+2026-07-13,UK,Chat,Listing & Selling,116,109,26,105,87
+2026-07-13,UK,Email,Listing & Selling,65,53,13,56,42
+2026-07-13,UK,Phone,Account Access,111,97,23,100,83
+2026-07-13,UK,Chat,Account Access,92,99,24,81,65
+2026-07-13,UK,Email,Account Access,53,52,13,46,34
+2026-07-13,UK,Phone,Buyer & Seller Disputes,88,74,19,78,57
+2026-07-13,UK,Chat,Buyer & Seller Disputes,65,47,12,59,40
+2026-07-13,UK,Email,Buyer & Seller Disputes,38,30,8,35,22
+2026-07-13,DE,Phone,Returns & Refunds,158,148,37,144,108
+2026-07-13,DE,Chat,Returns & Refunds,125,91,23,117,87
+2026-07-13,DE,Email,Returns & Refunds,72,70,18,64,42
+2026-07-13,DE,Phone,Shipping & Delivery,129,123,31,115,87
+2026-07-13,DE,Chat,Shipping & Delivery,103,99,25,89,67
+2026-07-13,DE,Email,Shipping & Delivery,61,47,12,57,39
+2026-07-13,DE,Phone,Payments & Payouts,106,87,22,99,74
+2026-07-13,DE,Chat,Payments & Payouts,82,68,17,74,54
+2026-07-13,DE,Email,Payments & Payouts,46,42,11,42,29
+2026-07-13,DE,Phone,Listing & Selling,94,79,19,86,70
+2026-07-13,DE,Chat,Listing & Selling,72,66,16,63,50
+2026-07-13,DE,Email,Listing & Selling,42,40,10,37,27
+2026-07-13,DE,Phone,Account Access,73,58,14,68,55
+2026-07-13,DE,Chat,Account Access,56,52,13,51,41
+2026-07-13,DE,Email,Account Access,31,28,7,27,20
+2026-07-13,DE,Phone,Buyer & Seller Disputes,50,34,9,47,33
+2026-07-13,DE,Chat,Buyer & Seller Disputes,39,34,9,36,24
+2026-07-13,DE,Email,Buyer & Seller Disputes,24,18,5,22,13
+2026-07-20,US,Phone,Returns & Refunds,830,500,151,716,512
+2026-07-20,US,Chat,Returns & Refunds,675,528,164,592,427
+2026-07-20,US,Email,Returns & Refunds,393,240,77,349,233
+2026-07-20,US,Phone,Shipping & Delivery,612,554,134,557,443
+2026-07-20,US,Chat,Shipping & Delivery,479,456,111,413,328
+2026-07-20,US,Email,Shipping & Delivery,280,258,64,242,174
+2026-07-20,US,Phone,Payments & Payouts,471,441,111,432,348
+2026-07-20,US,Chat,Payments & Payouts,360,331,84,326,251
+2026-07-20,US,Email,Payments & Payouts,197,165,44,177,129
+2026-07-20,US,Phone,Listing & Selling,422,342,80,368,318
+2026-07-20,US,Chat,Listing & Selling,314,273,64,280,240
+2026-07-20,US,Email,Listing & Selling,192,147,36,179,136
+2026-07-20,US,Phone,Account Access,343,307,73,319,265
+2026-07-20,US,Chat,Account Access,251,207,50,223,181
+2026-07-20,US,Email,Account Access,150,152,38,136,106
+2026-07-20,US,Phone,Buyer & Seller Disputes,254,186,48,234,178
+2026-07-20,US,Chat,Buyer & Seller Disputes,198,153,39,173,121
+2026-07-20,US,Email,Buyer & Seller Disputes,112,101,27,105,67
+2026-07-20,UK,Phone,Returns & Refunds,262,209,51,229,175
+2026-07-20,UK,Chat,Returns & Refunds,194,168,42,177,131
+2026-07-20,UK,Email,Returns & Refunds,122,109,28,110,74
+2026-07-20,UK,Phone,Shipping & Delivery,200,206,50,177,137
+2026-07-20,UK,Chat,Shipping & Delivery,159,149,36,142,107
+2026-07-20,UK,Email,Shipping & Delivery,91,76,19,83,59
+2026-07-20,UK,Phone,Payments & Payouts,164,122,30,152,117
+2026-07-20,UK,Chat,Payments & Payouts,131,136,34,122,93
+2026-07-20,UK,Email,Payments & Payouts,75,75,19,68,47
+2026-07-20,UK,Phone,Listing & Selling,139,137,32,124,104
+2026-07-20,UK,Chat,Listing & Selling,115,109,26,107,88
+2026-07-20,UK,Email,Listing & Selling,63,61,15,54,42
+2026-07-20,UK,Phone,Account Access,120,96,23,105,85
+2026-07-20,UK,Chat,Account Access,96,76,18,87,70
+2026-07-20,UK,Email,Account Access,57,49,12,51,38
+2026-07-20,UK,Phone,Buyer & Seller Disputes,96,70,18,89,65
+2026-07-20,UK,Chat,Buyer & Seller Disputes,72,57,15,62,44
+2026-07-20,UK,Email,Buyer & Seller Disputes,43,37,10,38,24
+2026-07-20,DE,Phone,Returns & Refunds,168,158,39,151,111
+2026-07-20,DE,Chat,Returns & Refunds,132,98,25,117,84
+2026-07-20,DE,Email,Returns & Refunds,71,62,16,61,40
+2026-07-20,DE,Phone,Shipping & Delivery,149,141,35,137,108
+2026-07-20,DE,Chat,Shipping & Delivery,118,93,23,109,83
+2026-07-20,DE,Email,Shipping & Delivery,65,50,13,59,41
+2026-07-20,DE,Phone,Payments & Payouts,100,76,19,93,71
+2026-07-20,DE,Chat,Payments & Payouts,73,68,17,68,50
+2026-07-20,DE,Email,Payments & Payouts,44,43,11,41,28
+2026-07-20,DE,Phone,Listing & Selling,97,100,24,88,72
+2026-07-20,DE,Chat,Listing & Selling,72,58,14,66,53
+2026-07-20,DE,Email,Listing & Selling,45,40,10,39,29
+2026-07-20,DE,Phone,Account Access,71,75,18,61,49
+2026-07-20,DE,Chat,Account Access,60,45,11,55,42
+2026-07-20,DE,Email,Account Access,33,35,9,29,22
+2026-07-20,DE,Phone,Buyer & Seller Disputes,58,53,14,54,38
+2026-07-20,DE,Chat,Buyer & Seller Disputes,44,42,11,40,27
+2026-07-20,DE,Email,Buyer & Seller Disputes,25,22,6,23,15
+2026-07-27,US,Phone,Returns & Refunds,876,491,159,799,582
+2026-07-27,US,Chat,Returns & Refunds,687,457,151,610,422
+2026-07-27,US,Email,Returns & Refunds,386,269,91,362,232
+2026-07-27,US,Phone,Shipping & Delivery,558,491,119,522,422
+2026-07-27,US,Chat,Shipping & Delivery,454,412,101,395,308
+2026-07-27,US,Email,Shipping & Delivery,259,263,65,242,171
+2026-07-27,US,Phone,Payments & Payouts,432,437,110,396,320
+2026-07-27,US,Chat,Payments & Payouts,340,285,72,294,231
+2026-07-27,US,Email,Payments & Payouts,195,186,50,168,121
+2026-07-27,US,Phone,Listing & Selling,445,489,114,392,339
+2026-07-27,US,Chat,Listing & Selling,342,311,72,294,248
+2026-07-27,US,Email,Listing & Selling,197,181,44,184,140
+2026-07-27,US,Phone,Account Access,337,277,67,309,264
+2026-07-27,US,Chat,Account Access,260,226,55,237,192
+2026-07-27,US,Email,Account Access,140,107,27,131,99
+2026-07-27,US,Phone,Buyer & Seller Disputes,248,218,56,231,171
+2026-07-27,US,Chat,Buyer & Seller Disputes,196,191,49,173,128
+2026-07-27,US,Email,Buyer & Seller Disputes,107,97,26,100,67
+2026-07-27,UK,Phone,Returns & Refunds,257,205,51,233,181
+2026-07-27,UK,Chat,Returns & Refunds,207,185,46,185,134
+2026-07-27,UK,Email,Returns & Refunds,119,107,27,104,71
+2026-07-27,UK,Phone,Shipping & Delivery,228,195,47,197,152
+2026-07-27,UK,Chat,Shipping & Delivery,168,125,31,148,113
+2026-07-27,UK,Email,Shipping & Delivery,99,94,24,87,63
+2026-07-27,UK,Phone,Payments & Payouts,159,122,30,148,112
+2026-07-27,UK,Chat,Payments & Payouts,125,106,26,113,84
+2026-07-27,UK,Email,Payments & Payouts,70,64,16,64,44
+2026-07-27,UK,Phone,Listing & Selling,149,121,28,138,114
+2026-07-27,UK,Chat,Listing & Selling,117,111,26,108,91
+2026-07-27,UK,Email,Listing & Selling,63,58,14,54,42
+2026-07-27,UK,Phone,Account Access,119,114,27,111,93
+2026-07-27,UK,Chat,Account Access,97,84,20,91,75
+2026-07-27,UK,Email,Account Access,53,40,10,48,36
+2026-07-27,UK,Phone,Buyer & Seller Disputes,91,82,21,83,62
+2026-07-27,UK,Chat,Buyer & Seller Disputes,71,54,14,62,43
+2026-07-27,UK,Email,Buyer & Seller Disputes,37,29,8,34,22
+2026-07-27,DE,Phone,Returns & Refunds,160,137,34,140,104
+2026-07-27,DE,Chat,Returns & Refunds,124,122,31,116,86
+2026-07-27,DE,Email,Returns & Refunds,70,53,14,64,42
+2026-07-27,DE,Phone,Shipping & Delivery,143,114,28,131,102
+2026-07-27,DE,Chat,Shipping & Delivery,112,83,21,105,78
+2026-07-27,DE,Email,Shipping & Delivery,64,61,16,55,37
+2026-07-27,DE,Phone,Payments & Payouts,98,77,19,89,69
+2026-07-27,DE,Chat,Payments & Payouts,77,76,19,69,51
+2026-07-27,DE,Email,Payments & Payouts,42,35,9,39,27
+2026-07-27,DE,Phone,Listing & Selling,94,70,17,87,73
+2026-07-27,DE,Chat,Listing & Selling,76,71,17,69,56
+2026-07-27,DE,Email,Listing & Selling,45,40,10,42,31
+2026-07-27,DE,Phone,Account Access,73,74,18,67,55
+2026-07-27,DE,Chat,Account Access,52,41,10,47,37
+2026-07-27,DE,Email,Account Access,32,28,7,28,20
+2026-07-27,DE,Phone,Buyer & Seller Disputes,51,42,11,46,33
+2026-07-27,DE,Chat,Buyer & Seller Disputes,40,34,9,37,26
+2026-07-27,DE,Email,Buyer & Seller Disputes,25,18,5,22,14
+2026-08-03,US,Phone,Returns & Refunds,975,607,209,879,615
+2026-08-03,US,Chat,Returns & Refunds,724,413,143,671,472
+2026-08-03,US,Email,Returns & Refunds,402,282,100,370,233
+2026-08-03,US,Phone,Shipping & Delivery,649,556,135,596,472
+2026-08-03,US,Chat,Shipping & Delivery,525,480,116,454,356
+2026-08-03,US,Email,Shipping & Delivery,291,241,61,259,186
+2026-08-03,US,Phone,Payments & Payouts,422,397,100,376,302
+2026-08-03,US,Chat,Payments & Payouts,322,270,70,298,234
+2026-08-03,US,Email,Payments & Payouts,190,171,45,173,124
+2026-08-03,US,Phone,Listing & Selling,431,393,90,374,329
+2026-08-03,US,Chat,Listing & Selling,341,322,76,311,260
+2026-08-03,US,Email,Listing & Selling,197,200,49,170,130
+2026-08-03,US,Phone,Account Access,348,342,82,301,252
+2026-08-03,US,Chat,Account Access,288,231,56,248,201
+2026-08-03,US,Email,Account Access,161,137,34,146,111
+2026-08-03,US,Phone,Buyer & Seller Disputes,242,198,51,212,158
+2026-08-03,US,Chat,Buyer & Seller Disputes,192,180,46,176,130
+2026-08-03,US,Email,Buyer & Seller Disputes,110,98,26,103,66
+2026-08-03,UK,Phone,Returns & Refunds,268,214,53,243,189
+2026-08-03,UK,Chat,Returns & Refunds,212,157,39,198,149
+2026-08-03,UK,Email,Returns & Refunds,122,103,26,106,71
+2026-08-03,UK,Phone,Shipping & Delivery,206,188,46,180,142
+2026-08-03,UK,Chat,Shipping & Delivery,165,139,34,153,119
+2026-08-03,UK,Email,Shipping & Delivery,93,70,18,83,58
+2026-08-03,UK,Phone,Payments & Payouts,166,126,31,156,124
+2026-08-03,UK,Chat,Payments & Payouts,132,106,26,116,87
+2026-08-03,UK,Email,Payments & Payouts,76,67,17,65,45
+2026-08-03,UK,Phone,Listing & Selling,156,123,29,135,113
+2026-08-03,UK,Chat,Listing & Selling,112,89,21,102,83
+2026-08-03,UK,Email,Listing & Selling,70,54,13,65,50
+2026-08-03,UK,Phone,Account Access,114,93,22,98,79
+2026-08-03,UK,Chat,Account Access,89,83,20,78,64
+2026-08-03,UK,Email,Account Access,50,37,9,43,33
+2026-08-03,UK,Phone,Buyer & Seller Disputes,88,71,18,78,57
+2026-08-03,UK,Chat,Buyer & Seller Disputes,68,62,16,60,43
+2026-08-03,UK,Email,Buyer & Seller Disputes,38,33,9,35,23
+2026-08-03,DE,Phone,Returns & Refunds,151,150,37,132,97
+2026-08-03,DE,Chat,Returns & Refunds,126,92,23,109,81
+2026-08-03,DE,Email,Returns & Refunds,69,64,17,64,42
+2026-08-03,DE,Phone,Shipping & Delivery,133,116,29,124,97
+2026-08-03,DE,Chat,Shipping & Delivery,107,98,24,92,67
+2026-08-03,DE,Email,Shipping & Delivery,59,58,15,52,37
+2026-08-03,DE,Phone,Payments & Payouts,102,104,26,89,69
+2026-08-03,DE,Chat,Payments & Payouts,80,60,15,70,52
+2026-08-03,DE,Email,Payments & Payouts,48,35,9,42,29
+2026-08-03,DE,Phone,Listing & Selling,93,91,22,87,72
+2026-08-03,DE,Chat,Listing & Selling,76,67,16,70,56
+2026-08-03,DE,Email,Listing & Selling,42,44,11,39,29
+2026-08-03,DE,Phone,Account Access,76,74,18,70,57
+2026-08-03,DE,Chat,Account Access,59,49,12,53,43
+2026-08-03,DE,Email,Account Access,32,32,8,28,20
+2026-08-03,DE,Phone,Buyer & Seller Disputes,51,43,11,44,31
+2026-08-03,DE,Chat,Buyer & Seller Disputes,42,30,8,36,26
+2026-08-03,DE,Email,Buyer & Seller Disputes,23,22,6,20,12
